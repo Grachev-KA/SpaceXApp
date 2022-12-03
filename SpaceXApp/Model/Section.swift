@@ -1,6 +1,7 @@
 import Foundation
 
 struct Section {
+    
     let type: SectionType
     let cells: [CellType]
     
