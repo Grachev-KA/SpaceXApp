@@ -1,6 +1,6 @@
 import UIKit
 
-final class PageRocketViewController: UIPageViewController {
+final class RocketsPageViewController: UIPageViewController {
     private lazy var arrayRocketViewController = [firstRocketViewController, secondRocketViewController, thirdRocketViewController, fourthRocketViewController]
     
     private let firstRocketViewController: RocketsViewController = {
@@ -35,7 +35,7 @@ final class PageRocketViewController: UIPageViewController {
     }
 }
 
-extension PageRocketViewController: UIPageViewControllerDataSource {
+extension RocketsPageViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewController = viewController as? RocketsViewController else { return nil }
         

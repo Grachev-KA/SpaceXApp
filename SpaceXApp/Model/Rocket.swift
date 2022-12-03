@@ -1,4 +1,4 @@
-struct SpaceRockets: Decodable {
+struct Rocket: Decodable {
     let height: Diameter
     let diameter: Diameter
     let mass: Mass
@@ -10,7 +10,7 @@ struct SpaceRockets: Decodable {
     let flickrImages: [String]
     let name: String
     let type: String
-    let firstFlight: Date
+    let firstFlight: String
     let country: String
     let company: String
     let wikipedia: String
@@ -23,20 +23,14 @@ struct SpaceRockets: Decodable {
     let successRatePct: Int
 }
 
-extension SpaceRockets {
-    struct Date: Decodable {
-        let firstFlight: String
-    }
-}
-
-extension SpaceRockets {
+extension Rocket {
     struct Diameter: Decodable {
         let meters: Double?
         let feet: Double?
     }
 }
 
-extension SpaceRockets {
+extension Rocket {
     struct Engines: Decodable {
         let isp: ISP
         let thrustSeaLevel: Thrust
@@ -52,21 +46,21 @@ extension SpaceRockets {
     }
 }
 
-extension SpaceRockets {
+extension Rocket {
     struct ISP: Decodable {
         let seaLevel: Int
         let vacuum: Int
     }
 }
 
-extension SpaceRockets {
+extension Rocket {
     struct Thrust: Decodable {
         let kN: Int
         let lbf: Int
     }
 }
 
-extension SpaceRockets {
+extension Rocket {
     struct FirstStage: Decodable {
         let thrustSeaLevel: Thrust
         let thrustVacuum: Thrust
@@ -77,21 +71,21 @@ extension SpaceRockets {
     }
 }
 
-extension SpaceRockets {
+extension Rocket {
     struct LandingLegs: Decodable {
         let number: Int
         let material: String?
     }
 }
 
-extension SpaceRockets {
+extension Rocket {
     struct Mass: Decodable {
         let kg: Int
         let lb: Int
     }
 }
 
-extension SpaceRockets {
+extension Rocket {
     struct PayloadWeight: Decodable {
         let id: String
         let name: String
@@ -100,7 +94,7 @@ extension SpaceRockets {
     }
 }
 
-extension SpaceRockets {
+extension Rocket {
     struct SecondStage: Decodable {
         let thrust: Thrust
         let payloads: Payloads
@@ -111,14 +105,14 @@ extension SpaceRockets {
     }
 }
 
-extension SpaceRockets {
+extension Rocket {
     struct Payloads: Decodable {
         let compositeFairing: CompositeFairing
         let option1: String
     }
 }
 
-extension SpaceRockets {
+extension Rocket {
     struct CompositeFairing: Decodable {
         let height: Diameter
         let diameter: Diameter

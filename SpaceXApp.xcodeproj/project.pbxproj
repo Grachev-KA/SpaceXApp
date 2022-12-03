@@ -18,12 +18,13 @@
 		CC234A5428F7524F00D7C769 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC234A5328F7524F00D7C769 /* SettingTableViewCell.swift */; };
 		CC234A5628F75D0000D7C769 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC234A5528F75D0000D7C769 /* SettingsViewController.swift */; };
 		CC5B1E5128FC6D9F007294B8 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5B1E5028FC6D9F007294B8 /* Settings.swift */; };
-		CC5DEEB028DE4B1F00901319 /* SpaceRockets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5DEEAF28DE4B1F00901319 /* SpaceRockets.swift */; };
-		CC5DEEB628DF0BBB00901319 /* RocketLaunches.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5DEEB528DF0BBB00901319 /* RocketLaunches.swift */; };
-		CC613D1828F44DC100E00CA4 /* PageRocketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC613D1728F44DC100E00CA4 /* PageRocketViewController.swift */; };
+		CC5DEEB028DE4B1F00901319 /* Rocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5DEEAF28DE4B1F00901319 /* Rocket.swift */; };
+		CC5DEEB628DF0BBB00901319 /* Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5DEEB528DF0BBB00901319 /* Launch.swift */; };
+		CC613D1828F44DC100E00CA4 /* RocketsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC613D1728F44DC100E00CA4 /* RocketsPageViewController.swift */; };
 		CCBC96E22919798B002C9E65 /* LaunchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBC96E12919798B002C9E65 /* LaunchesViewController.swift */; };
 		CCBC96E4291AF7D7002C9E65 /* LaunchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBC96E3291AF7D7002C9E65 /* LaunchesView.swift */; };
 		CCBC96E6291AF8E5002C9E65 /* LaunchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBC96E5291AF8E5002C9E65 /* LaunchTableViewCell.swift */; };
+		CCFB545C2932753000C8C2E0 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFB545B2932753000C8C2E0 /* Section.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,12 +41,13 @@
 		CC234A5328F7524F00D7C769 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		CC234A5528F75D0000D7C769 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CC5B1E5028FC6D9F007294B8 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		CC5DEEAF28DE4B1F00901319 /* SpaceRockets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceRockets.swift; sourceTree = "<group>"; };
-		CC5DEEB528DF0BBB00901319 /* RocketLaunches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketLaunches.swift; sourceTree = "<group>"; };
-		CC613D1728F44DC100E00CA4 /* PageRocketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageRocketViewController.swift; sourceTree = "<group>"; };
+		CC5DEEAF28DE4B1F00901319 /* Rocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rocket.swift; sourceTree = "<group>"; };
+		CC5DEEB528DF0BBB00901319 /* Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launch.swift; sourceTree = "<group>"; };
+		CC613D1728F44DC100E00CA4 /* RocketsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsPageViewController.swift; sourceTree = "<group>"; };
 		CCBC96E12919798B002C9E65 /* LaunchesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesViewController.swift; sourceTree = "<group>"; };
 		CCBC96E3291AF7D7002C9E65 /* LaunchesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesView.swift; sourceTree = "<group>"; };
 		CCBC96E5291AF8E5002C9E65 /* LaunchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchTableViewCell.swift; sourceTree = "<group>"; };
+		CCFB545B2932753000C8C2E0 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +94,7 @@
 		CC16498F28DE4216000C8134 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				CC613D1728F44DC100E00CA4 /* PageRocketViewController.swift */,
+				CC613D1728F44DC100E00CA4 /* RocketsPageViewController.swift */,
 				CC16497F28DE40C6000C8134 /* RocketsViewController.swift */,
 				CC234A5528F75D0000D7C769 /* SettingsViewController.swift */,
 				CCBC96E12919798B002C9E65 /* LaunchesViewController.swift */,
@@ -116,10 +118,11 @@
 			children = (
 				CC16499228DE429C000C8134 /* NetworkManager.swift */,
 				CC16499428DE43D9000C8134 /* NetworkURL.swift */,
-				CC5DEEAF28DE4B1F00901319 /* SpaceRockets.swift */,
-				CC5DEEB528DF0BBB00901319 /* RocketLaunches.swift */,
+				CC5DEEAF28DE4B1F00901319 /* Rocket.swift */,
+				CC5DEEB528DF0BBB00901319 /* Launch.swift */,
 				CC5B1E5028FC6D9F007294B8 /* Settings.swift */,
 				CC0C9B3B290D608500199D02 /* UserSettings.swift */,
+				CCFB545B2932753000C8C2E0 /* Section.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -199,9 +202,10 @@
 				CC5B1E5128FC6D9F007294B8 /* Settings.swift in Sources */,
 				CCBC96E4291AF7D7002C9E65 /* LaunchesView.swift in Sources */,
 				CC234A5428F7524F00D7C769 /* SettingTableViewCell.swift in Sources */,
-				CC5DEEB028DE4B1F00901319 /* SpaceRockets.swift in Sources */,
-				CC613D1828F44DC100E00CA4 /* PageRocketViewController.swift in Sources */,
-				CC5DEEB628DF0BBB00901319 /* RocketLaunches.swift in Sources */,
+				CC5DEEB028DE4B1F00901319 /* Rocket.swift in Sources */,
+				CC613D1828F44DC100E00CA4 /* RocketsPageViewController.swift in Sources */,
+				CCFB545C2932753000C8C2E0 /* Section.swift in Sources */,
+				CC5DEEB628DF0BBB00901319 /* Launch.swift in Sources */,
 				CC16497C28DE40C6000C8134 /* AppDelegate.swift in Sources */,
 				CC234A5228F74F1A00D7C769 /* SettingsView.swift in Sources */,
 				CCBC96E22919798B002C9E65 /* LaunchesViewController.swift in Sources */,

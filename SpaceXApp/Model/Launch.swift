@@ -1,4 +1,4 @@
-struct RocketLaunches: Decodable {
+struct Launch: Decodable {
     let fairings: Fairings?
     let links: Links
     let staticFireDateUTC: String?
@@ -28,7 +28,7 @@ struct RocketLaunches: Decodable {
     let cores: [Core]
 }
 
-extension RocketLaunches {
+extension Launch {
     struct Core: Decodable {
         let core: String?
         let landingType: String?
@@ -42,7 +42,7 @@ extension RocketLaunches {
     }
 }
 
-extension RocketLaunches {
+extension Launch {
     struct Failure: Decodable {
         let time: Int
         let altitude: Int?
@@ -50,7 +50,7 @@ extension RocketLaunches {
     }
 }
 
-extension RocketLaunches {
+extension Launch {
     struct Fairings: Decodable {
         let reused: Bool?
         let recoveryAttempt: Bool?
@@ -59,7 +59,7 @@ extension RocketLaunches {
     }
 }
 
-extension RocketLaunches {
+extension Launch {
     struct Links: Decodable {
         let patch: Patch
         let reddit: Reddit
@@ -72,21 +72,21 @@ extension RocketLaunches {
     }
 }
 
-extension RocketLaunches {
+extension Launch {
     struct Flickr: Decodable {
         let small: [String]
         let original: [String]
     }
 }
 
-extension RocketLaunches {
+extension Launch {
     struct Patch: Decodable {
         let smalle: String?
         let large: String?
     }
 }
 
-extension RocketLaunches {
+extension Launch {
     struct Reddit: Decodable {
         let campaign: String?
         let launch: String?

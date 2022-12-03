@@ -36,11 +36,11 @@ final class NetworkManager {
         }.resume()
     }
     
-    func getRockets(_ url: String, completionHandler: @escaping (Result<[SpaceRockets], Error>) -> Void) {
-        getData(url: NetworkURL.spaceRockets, type: [SpaceRockets].self, completionHandler: completionHandler)
+    func getRockets(_ url: String, completionHandler: @escaping (Result<[Rocket], Error>) -> Void) {
+        getData(url: NetworkURL.rockets, type: [Rocket].self, completionHandler: completionHandler)
     }
     
-    func getLaunches(_ url: String, completionHandler: @escaping (Result<[RocketLaunches], Error>) -> Void) {
-        getData(url: NetworkURL.rocketLaunches, type: [RocketLaunches].self, completionHandler: completionHandler)
+    func getLaunches(_ url: String, completionHandler: @escaping (Result<[Launch], Error>) -> Void) {
+        getData(url: NetworkURL.launches, type: [Launch].self, completionHandler: completionHandler)
     }
 }
