@@ -55,7 +55,7 @@ final class RocketsViewController: UIViewController {
             case let .success(rockets):
                 self.rockets = rockets
                 DispatchQueue.main.async {
-                    self.rocketsView.tableView.reloadData()
+//                    self.rocketsView.tableView.reloadData()
                 }
             case let .failure(error):
                 print(error)

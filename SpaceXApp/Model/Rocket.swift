@@ -25,8 +25,8 @@ struct Rocket: Decodable {
 
 extension Rocket {
     struct Diameter: Decodable {
-        let meters: Double?
-        let feet: Double?
+        let meters: Double
+        let feet: Double
     }
 }
 
@@ -67,7 +67,7 @@ extension Rocket {
         let reusable: Bool
         let engines: Int
         let fuelAmountTons: Double
-        let burnTimeSEC: Int?
+        let burnTimeSec: Int?
     }
 }
 
@@ -101,7 +101,7 @@ extension Rocket {
         let reusable: Bool
         let engines: Int
         let fuelAmountTons: Double
-        let burnTimeSEC: Int?
+        let burnTimeSec: Int?
     }
 }
 

@@ -1,13 +1,13 @@
 import Foundation
 
 struct Section {
-    
     let type: SectionType
-    let cells: [CellType]
+    var cells: [CellType]
     
     func makeCells(rocket: Rocket) -> [Section] {
         let imageBackgroungURL = URL(string: rocket.flickrImages[0])!
-        let items = [
+
+        var items = [
             Section(
                 type: .imageAndTitle,
                 cells: [
@@ -17,8 +17,8 @@ struct Section {
             Section(
                 type: .orthogonal,
                 cells: [
-                    .info(title: "Высота, ft", value: String(rocket.height.feet ?? "")),
-                    .info(title: "Диаметр, ft", value: String(rocket.diameter.feet ?? "")),
+                    .info(title: "Высота, ft", value: String(rocket.height.feet)),
+                    .info(title: "Диаметр, ft", value: String(rocket.diameter.feet)),
                     .info(title: "Масса, lb", value: String(rocket.mass.lb)),
                     .info(title: "Нагрузка, lb", value: String(rocket.mass.lb))
                 ]
@@ -36,7 +36,6 @@ struct Section {
                 cells: [
                     .info(title: "Количество двигателей", value: String(rocket.firstStage.engines)),
                     .info(title: "Количество топлива", value: String(rocket.firstStage.fuelAmountTons)),
-                    .info(title: "Время сгорания", value: String(rocket.firstStage.burnTimeSEC ?? ""))
                 ]
             ),
             Section(
@@ -44,7 +43,6 @@ struct Section {
                 cells: [
                     .info(title: "Количество двигателей", value: String(rocket.secondStage.engines)),
                     .info(title: "Количество топлива", value: String(rocket.secondStage.fuelAmountTons)),
-                    .info(title: "Время сгорания", value: String(rocket.secondStage.burnTimeSEC) ?? "")
                 ]
             ),
             Section(
@@ -52,6 +50,17 @@ struct Section {
                 cells: [.button]
             )
         ]
+        
+        if let rocketFirstStageBurnTimeSec = rocket.firstStage.burnTimeSec {
+            let sectionVertical: CellType = .info(title: "Время сгорания", value: String(rocketFirstStageBurnTimeSec))
+            items[3].cells.append(sectionVertical)
+        }
+        
+        if let rocketSecondStageBurnTimeSec = rocket.secondStage.burnTimeSec {
+            let sectionVertical: CellType = .info(title: "Время сгорания", value: String(rocketSecondStageBurnTimeSec))
+            items[4].cells.append(sectionVertical)
+        }
+        
         return items
     }
 }
