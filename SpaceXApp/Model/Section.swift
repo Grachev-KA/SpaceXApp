@@ -3,18 +3,37 @@ import Foundation
 struct Section {
     let type: SectionType
     let cells: [CellType]
-    
-    func makeCells(rocket: Rocket) -> [Section] {
+}
+
+extension Section {
+    enum CellType {
+        case header(image: URL, title: String)
+        case info(title: String, value: String)
+        case button
+    }
+}
+
+extension Section {
+    enum SectionType {
+        case imageAndTitle
+        case orthogonal
+        case vertical(title: String?)
+        case button
+    }
+}
+
+extension Section {
+    static func makeCells(rocket: Rocket) -> [Section] {
         var sections = [Section]()
-        let imageBackgroungURL = URL(string: rocket.flickrImages[0])
         
-        if let image = imageBackgroungURL {
-            sections.append(Section(
-                type: .imageAndTitle,
-                cells: [
-                    .header(image: image, title: rocket.name)
-                ]
-            )
+        if let imageBackgroundURL = URL(string: rocket.flickrImages[0]) {
+            sections.append(
+                Section(
+                    type: .imageAndTitle,
+                    cells: [
+                        .header(image: imageBackgroundURL, title: rocket.name)
+                    ]
+                )
             )
         }
         
@@ -59,22 +78,5 @@ struct Section {
         ]
         sections.append(contentsOf: sectionsWithoutImageAndTitle)
         return sections
-    }
-}
-
-extension Section {
-    enum CellType {
-        case header(image: URL, title: String)
-        case info(title: String, value: String)
-        case button
-    }
-}
-
-extension Section {
-    enum SectionType {
-        case imageAndTitle
-        case orthogonal
-        case vertical(title: String?)
-        case button
     }
 }

@@ -11,14 +11,18 @@ extension Settings {
         case weight = "Масса"
         case payload = "Полезная нагрузка"
     }
-
+}
+    
+extension Settings {
     enum Units: String {
         case meters = "m"
         case feet = "ft"
         case kilograms = "kg"
         case pounds = "lb"
     }
-
+}
+    
+extension Settings {
     static func availableSettings() -> [Settings] {
         [
             Settings(type: .height, units: [.meters, .feet], selectedUnit: .meters),
@@ -28,3 +32,4 @@ extension Settings {
         ]
     }
 }
+
