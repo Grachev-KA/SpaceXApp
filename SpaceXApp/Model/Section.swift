@@ -2,23 +2,28 @@ import Foundation
 
 struct Section {
     let type: SectionType
-    var cells: [CellType]
+    let cells: [CellType]
     
     func makeCells(rocket: Rocket) -> [Section] {
-        let imageBackgroungURL = URL(string: rocket.flickrImages[0])!
-
-        var items = [
-            Section(
+        var sections = [Section]()
+        let imageBackgroungURL = URL(string: rocket.flickrImages[0])
+        
+        if let image = imageBackgroungURL {
+            sections.append(Section(
                 type: .imageAndTitle,
                 cells: [
-                    .header(image: imageBackgroungURL, title: rocket.name)
+                    .header(image: image, title: rocket.name)
                 ]
-            ),
+            )
+            )
+        }
+        
+        var sectionsWithoutImageAndTitle = [
             Section(
                 type: .orthogonal,
                 cells: [
-                    .info(title: "Высота, ft", value: String(rocket.height.feet)),
-                    .info(title: "Диаметр, ft", value: String(rocket.diameter.feet)),
+                    .info(title: "Высота, ft", value: String(rocket.height.feet ?? 0)),
+                    .info(title: "Диаметр, ft", value: String(rocket.diameter.feet ?? 0)),
                     .info(title: "Масса, lb", value: String(rocket.mass.lb)),
                     .info(title: "Нагрузка, lb", value: String(rocket.mass.lb))
                 ]
@@ -36,6 +41,7 @@ struct Section {
                 cells: [
                     .info(title: "Количество двигателей", value: String(rocket.firstStage.engines)),
                     .info(title: "Количество топлива", value: String(rocket.firstStage.fuelAmountTons)),
+                    .info(title: "Время сгорания", value: String(rocket.firstStage.burnTimeSec ?? 0))
                 ]
             ),
             Section(
@@ -43,6 +49,7 @@ struct Section {
                 cells: [
                     .info(title: "Количество двигателей", value: String(rocket.secondStage.engines)),
                     .info(title: "Количество топлива", value: String(rocket.secondStage.fuelAmountTons)),
+                    .info(title: "Время сгорания", value: String(rocket.secondStage.burnTimeSec ?? 0))
                 ]
             ),
             Section(
@@ -50,18 +57,8 @@ struct Section {
                 cells: [.button]
             )
         ]
-        
-        if let rocketFirstStageBurnTimeSec = rocket.firstStage.burnTimeSec {
-            let sectionVertical: CellType = .info(title: "Время сгорания", value: String(rocketFirstStageBurnTimeSec))
-            items[3].cells.append(sectionVertical)
-        }
-        
-        if let rocketSecondStageBurnTimeSec = rocket.secondStage.burnTimeSec {
-            let sectionVertical: CellType = .info(title: "Время сгорания", value: String(rocketSecondStageBurnTimeSec))
-            items[4].cells.append(sectionVertical)
-        }
-        
-        return items
+        sections.append(contentsOf: sectionsWithoutImageAndTitle)
+        return sections
     }
 }
 

@@ -25,8 +25,8 @@ struct Rocket: Decodable {
 
 extension Rocket {
     struct Diameter: Decodable {
-        let meters: Double
-        let feet: Double
+        let meters: Double?
+        let feet: Double?
     }
 }
 
