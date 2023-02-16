@@ -20,7 +20,7 @@ final class LaunchViewController: UIViewController, LaunchPresenterView {
         dateFormatter.dateFormat = "dd MMMM yyyy"
         tableView.dataSource = self
         tableView.delegate = self
-//        present(data: launches)
+        present(data: launches)
         setLayout()
     }
     
