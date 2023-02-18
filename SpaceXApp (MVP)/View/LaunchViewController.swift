@@ -1,7 +1,8 @@
 import UIKit
 import Foundation
 
-final class LaunchViewController: UIViewController, LaunchPresenterView {
+final class LaunchViewController: UIViewController, View {
+    let presenter = LaunchPresenter()
     private var launches = [Launch]()
     private let dateFormatter = DateFormatter()
     
@@ -15,17 +16,19 @@ final class LaunchViewController: UIViewController, LaunchPresenterView {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addSubview(tableView)
         view.backgroundColor = .darkGray
-        dateFormatter.dateFormat = "dd MMMM yyyy"
+        view.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
-        present(data: launches)
+        dateFormatter.dateFormat = "dd MMMM yyyy"
+        presenter.getData()
+        present(launches: launches)
         setLayout()
     }
     
-    func present(data: [Launch]) {
-        self.tableView.reloadData()
+    func present(launches: [Launch]) {
+        self.launches = launches
+        tableView.reloadData()
     }
     
     private func setLayout() {

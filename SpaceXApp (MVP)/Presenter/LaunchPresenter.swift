@@ -1,31 +1,25 @@
 import Foundation
 
-protocol LaunchPresenterModel: AnyObject {
-   func getData()
+protocol View: AnyObject {
+    func present(launches: [Launch])
 }
 
-protocol LaunchPresenterView: AnyObject {
-    func present(data: [Launch])
+protocol Presenter: AnyObject {
+    func getData()
 }
 
-class LaunchPresenter: LaunchPresenterModel, LaunchPresenterView {
+final class LaunchPresenter: Presenter {
+    var view = LaunchViewController()
     private let networkManager = NetworkManager()
-    private var launches = [Launch]()
     
     func getData() {
         networkManager.getLaunches(NetworkUrl.launches) { result in
             switch result {
             case let .success(launches):
-                self.launches = launches
+                self.view.present(launches: launches)
             case let .failure(error):
                 print(error)
             }
         }
     }
-    
-    func present(data: self.launches) {
-        print("test")
-    }
 }
-
-
