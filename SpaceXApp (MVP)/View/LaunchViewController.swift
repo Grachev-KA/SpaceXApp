@@ -2,7 +2,7 @@ import UIKit
 import Foundation
 
 final class LaunchViewController: UIViewController {
-    lazy var presenter = LaunchPresenter(view: self)
+    lazy private var presenter = LaunchPresenter(view: self)
     private var launches = [Launch]()
     private let dateFormatter = DateFormatter()
     
@@ -59,7 +59,7 @@ extension LaunchViewController: UITableViewDelegate {
     }
 }
 
-extension LaunchViewController: View {
+extension LaunchViewController: LaunchViewProtocol {
     func present(launches: [Launch]) {
         self.launches = launches
         DispatchQueue.main.async {

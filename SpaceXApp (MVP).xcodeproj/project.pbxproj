@@ -20,7 +20,7 @@
 		CC893D0B299E4D5D0052387C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC893D0A299E4D5D0052387C /* NetworkManager.swift */; };
 		CC893D0D299E525A0052387C /* LaunchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC893D0C299E525A0052387C /* LaunchCell.swift */; };
 		CC893D10299E53D60052387C /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC893D0F299E53D60052387C /* UITableViewCell.swift */; };
-		CCD0564F299E96E800C1457E /* LaunchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD0564E299E96E800C1457E /* LaunchPresenter.swift */; };
+		CCD0564F299E96E800C1457E /* LaunchPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD0564E299E96E800C1457E /* LaunchPresenterProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +39,7 @@
 		CC893D0A299E4D5D0052387C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CC893D0C299E525A0052387C /* LaunchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCell.swift; sourceTree = "<group>"; };
 		CC893D0F299E53D60052387C /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
-		CCD0564E299E96E800C1457E /* LaunchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPresenter.swift; sourceTree = "<group>"; };
+		CCD0564E299E96E800C1457E /* LaunchPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPresenterProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +87,7 @@
 		CC893CFA299E4B170052387C /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				CCD0564E299E96E800C1457E /* LaunchPresenter.swift */,
+				CCD0564E299E96E800C1457E /* LaunchPresenterProtocol.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -202,7 +202,7 @@
 				CC893D05299E4CDD0052387C /* UserSettings.swift in Sources */,
 				CC893D10299E53D60052387C /* UITableViewCell.swift in Sources */,
 				CC893D07299E4D050052387C /* Section.swift in Sources */,
-				CCD0564F299E96E800C1457E /* LaunchPresenter.swift in Sources */,
+				CCD0564F299E96E800C1457E /* LaunchPresenterProtocol.swift in Sources */,
 				CC893D01299E4CAA0052387C /* Rocket.swift in Sources */,
 				CC893CE9299E49290052387C /* SceneDelegate.swift in Sources */,
 			);

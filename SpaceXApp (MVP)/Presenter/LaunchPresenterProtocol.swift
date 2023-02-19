@@ -1,18 +1,18 @@
 import Foundation
 
-protocol View: AnyObject {
+protocol LaunchViewProtocol: AnyObject {
     func present(launches: [Launch])
 }
 
-protocol Presenter: AnyObject {
+protocol LaunchPresenterProtocol: AnyObject {
     func getData()
 }
 
 final class LaunchPresenter {
-    weak var view: View?
+    weak var view: LaunchViewProtocol?
     private let networkManager = NetworkManager()
     
-    init(view: View) {
+    init(view: LaunchViewProtocol) {
       self.view = view
     }
     
