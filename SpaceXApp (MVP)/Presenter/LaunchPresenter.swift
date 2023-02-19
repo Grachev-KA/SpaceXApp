@@ -15,7 +15,9 @@ final class LaunchPresenter {
     init(view: LaunchViewProtocol) {
       self.view = view
     }
-    
+}
+
+extension LaunchPresenter: LaunchPresenterProtocol {
     func getData() {
         networkManager.getLaunches(NetworkUrl.launches) { result in
             switch result {
