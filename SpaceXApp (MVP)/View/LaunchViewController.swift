@@ -1,8 +1,8 @@
 import UIKit
 import Foundation
 
-final class LaunchViewController: UIViewController, View {
-    let presenter = LaunchPresenter()
+final class LaunchViewController: UIViewController {
+    lazy var presenter = LaunchPresenter(view: self)
     private var launches = [Launch]()
     private let dateFormatter = DateFormatter()
     
@@ -22,13 +22,7 @@ final class LaunchViewController: UIViewController, View {
         tableView.delegate = self
         dateFormatter.dateFormat = "dd MMMM yyyy"
         presenter.getData()
-        present(launches: launches)
         setLayout()
-    }
-    
-    func present(launches: [Launch]) {
-        self.launches = launches
-        tableView.reloadData()
     }
     
     private func setLayout() {
@@ -62,5 +56,14 @@ extension LaunchViewController: UITableViewDataSource {
 extension LaunchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         70
+    }
+}
+
+extension LaunchViewController: View {
+    func present(launches: [Launch]) {
+        self.launches = launches
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 }
