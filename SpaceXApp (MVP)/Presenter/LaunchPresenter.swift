@@ -5,24 +5,32 @@ protocol LaunchViewProtocol: AnyObject {
 }
 
 protocol LaunchPresenterProtocol: AnyObject {
-    func getData()
+    func getLaunches()
 }
 
 final class LaunchPresenter {
-    weak var view: LaunchViewProtocol?
+    weak var view: LaunchViewProtocol? //ПОЧЕМУ weak, а не unowned? Время жизни LaunchVC больше, чем LaunchPresenter
     private let networkManager = NetworkManager()
+    var rocketId: String
     
-    init(view: LaunchViewProtocol) {
-      self.view = view
+    init(view: LaunchViewProtocol, rocketId: String) {
+        self.view = view
+        self.rocketId = "5e9d0d95eda69955f709d1eb"
     }
 }
 
 extension LaunchPresenter: LaunchPresenterProtocol {
-    func getData() {
+    func getLaunches() {
         networkManager.getLaunches(NetworkUrl.launches) { result in
             switch result {
             case let .success(launches):
-                self.view?.present(launches: launches)
+                var launchesSort = [Launch]()
+                for launch in launches {
+                    if launch.rocket == self.rocketId {
+                        launchesSort.append(launch)
+                    }
+                }
+                self.view?.present(launches: launchesSort)
             case let .failure(error):
                 print(error)
             }

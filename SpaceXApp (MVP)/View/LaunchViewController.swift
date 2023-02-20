@@ -2,7 +2,7 @@ import UIKit
 import Foundation
 
 final class LaunchViewController: UIViewController {
-    lazy private var presenter = LaunchPresenter(view: self)
+    lazy private var presenter = LaunchPresenter(view: self, rocketId: "5e9d0d95eda69955f709d1eb")
     private var launches = [Launch]()
     private let dateFormatter = DateFormatter()
     
@@ -21,7 +21,7 @@ final class LaunchViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         dateFormatter.dateFormat = "dd MMMM yyyy"
-        presenter.getData()
+        presenter.getLaunches()
         setLayout()
     }
     
