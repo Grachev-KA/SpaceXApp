@@ -3,13 +3,12 @@ import Foundation
 
 final class LaunchViewController: UIViewController {
     lazy private var presenter = LaunchPresenter(view: self, rocketId: "5e9d0d95eda69955f709d1eb")
-    private var launches = [Launch]()
-    private let dateFormatter = DateFormatter()
+    private var launchesCells = [LaunchCell]()
     
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(LaunchCell.self, forCellReuseIdentifier: LaunchCell.reuseIdentifier)
+        tableView.register(LaunchViewCell.self, forCellReuseIdentifier: LaunchViewCell.reuseIdentifier)
         return tableView
     }()
     
@@ -20,7 +19,6 @@ final class LaunchViewController: UIViewController {
         view.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
-        dateFormatter.dateFormat = "dd MMMM yyyy"
         presenter.getLaunches()
         setLayout()
     }
@@ -38,16 +36,15 @@ final class LaunchViewController: UIViewController {
 
 extension LaunchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        launches.count
+        launchesCells.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: LaunchCell.reuseIdentifier, for: indexPath)
-        let launch = launches[indexPath.row]
-        let imageLaunchStatus = UIImage(named: launch.success == true ? "launchOk" : "launchFail")
-        let dateUtcString = dateFormatter.string(from: launch.dateUtc)
+        let cell = tableView.dequeueReusableCell(withIdentifier: LaunchViewCell.reuseIdentifier, for: indexPath)
+        let launchCell = launchesCells[indexPath.row]
+        let imageLaunchStatus = UIImage(named: launchCell.image)
         
-        (cell as? LaunchCell)?.setup(name: launch.name, dateUtc: dateUtcString, imageLaunchStatus: imageLaunchStatus)
+        (cell as? LaunchViewCell)?.setup(name: launchCell.name, dateUtc: launchCell.dateUtc, imageLaunchStatus: imageLaunchStatus)
         cell.selectionStyle = .none
         return cell
     }
@@ -59,9 +56,11 @@ extension LaunchViewController: UITableViewDelegate {
     }
 }
 
+//MARK: - LaunchViewProtocol
+
 extension LaunchViewController: LaunchViewProtocol {
-    func present(launches: [Launch]) {
-        self.launches = launches
+    func present(launchesCells: [LaunchCell]) {
+        self.launchesCells = launchesCells
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }

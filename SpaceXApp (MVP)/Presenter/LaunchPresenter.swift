@@ -1,7 +1,7 @@
 import Foundation
 
 protocol LaunchViewProtocol: AnyObject {
-    func present(launches: [Launch])
+    func present(launchesCells: [LaunchCell])
 }
 
 protocol LaunchPresenterProtocol: AnyObject {
@@ -9,28 +9,37 @@ protocol LaunchPresenterProtocol: AnyObject {
 }
 
 final class LaunchPresenter {
-    weak var view: LaunchViewProtocol? //ПОЧЕМУ weak, а не unowned? Время жизни LaunchVC больше, чем LaunchPresenter
+    weak var view: LaunchViewProtocol?
     private let networkManager = NetworkManager()
-    var rocketId: String
+    private let dateFormatter = DateFormatter()
+    private let rocketId: String
     
     init(view: LaunchViewProtocol, rocketId: String) {
         self.view = view
-        self.rocketId = "5e9d0d95eda69955f709d1eb"
+        self.rocketId = rocketId
+        dateFormatter.dateFormat = "dd MMMM yyyy"
     }
 }
+
+//MARK: - LaunchPresenterProtocol
 
 extension LaunchPresenter: LaunchPresenterProtocol {
     func getLaunches() {
         networkManager.getLaunches(NetworkUrl.launches) { result in
             switch result {
             case let .success(launches):
-                var launchesSort = [Launch]()
-                for launch in launches {
-                    if launch.rocket == self.rocketId {
-                        launchesSort.append(launch)
-                    }
+                let launchesFiltered = launches.filter { $0.rocket == self.rocketId }
+                
+                var launchesCells = [LaunchCell]()
+                for launch in launchesFiltered {
+                    let name = launch.name
+                    let dateUtc = self.dateFormatter.string(from: launch.dateUtc)
+                    let image = launch.success == true ? "launchOk" : "launchFail"
+                    let launchCell = LaunchCell(name: name, dateUtc: dateUtc, image: image)
+                    launchesCells.append(launchCell)
                 }
-                self.view?.present(launches: launchesSort)
+                
+                self.view?.present(launchesCells: launchesCells)
             case let .failure(error):
                 print(error)
             }

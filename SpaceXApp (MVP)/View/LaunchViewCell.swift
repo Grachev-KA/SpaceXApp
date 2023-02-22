@@ -1,6 +1,6 @@
 import UIKit
 
-final class LaunchCell: UITableViewCell {
+final class LaunchViewCell: UITableViewCell {
     private let cellFrame: UIView = {
         let cellFrame = UIView()
         cellFrame.translatesAutoresizingMaskIntoConstraints = false
