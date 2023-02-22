@@ -22,7 +22,6 @@
 		CC893D0D299E525A0052387C /* LaunchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC893D0C299E525A0052387C /* LaunchViewCell.swift */; };
 		CC893D10299E53D60052387C /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC893D0F299E53D60052387C /* UITableViewCell.swift */; };
 		CCA893F629A3AB3400A6101F /* UICollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA893F529A3AB3400A6101F /* UICollectionReusableView.swift */; };
-		CCA8940E29A3AE9F00A6101F /* RocketPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA8940D29A3AE9F00A6101F /* RocketPresenter.swift */; };
 		CCA8941029A3AEE700A6101F /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA8940F29A3AEE700A6101F /* SettingsPresenter.swift */; };
 		CCD0564F299E96E800C1457E /* LaunchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD0564E299E96E800C1457E /* LaunchPresenter.swift */; };
 		CCD249E129A543BE004414B8 /* LaunchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD249E029A543BE004414B8 /* LaunchCell.swift */; };
@@ -47,7 +46,6 @@
 		CC893D0C299E525A0052387C /* LaunchViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewCell.swift; sourceTree = "<group>"; };
 		CC893D0F299E53D60052387C /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
 		CCA893F529A3AB3400A6101F /* UICollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionReusableView.swift; sourceTree = "<group>"; };
-		CCA8940D29A3AE9F00A6101F /* RocketPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketPresenter.swift; sourceTree = "<group>"; };
 		CCA8940F29A3AEE700A6101F /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		CCD0564E299E96E800C1457E /* LaunchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPresenter.swift; sourceTree = "<group>"; };
 		CCD249E029A543BE004414B8 /* LaunchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCell.swift; sourceTree = "<group>"; };
@@ -120,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				CCD0564E299E96E800C1457E /* LaunchPresenter.swift */,
-				CCA8940D29A3AE9F00A6101F /* RocketPresenter.swift */,
 				CCA8940F29A3AEE700A6101F /* SettingsPresenter.swift */,
 			);
 			path = Presenter;
@@ -259,7 +256,6 @@
 				CCA8941029A3AEE700A6101F /* SettingsPresenter.swift in Sources */,
 				CC893D09299E4D220052387C /* NetworkUrl.swift in Sources */,
 				CC893D0B299E4D5D0052387C /* NetworkManager.swift in Sources */,
-				CCA8940E29A3AE9F00A6101F /* RocketPresenter.swift in Sources */,
 				CC893CEB299E49290052387C /* LaunchViewController.swift in Sources */,
 				CC893D0D299E525A0052387C /* LaunchViewCell.swift in Sources */,
 				CC893CE7299E49290052387C /* AppDelegate.swift in Sources */,
