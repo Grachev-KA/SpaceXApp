@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53B81EE119A94A4B5C52B049 /* libPods-SpaceXApp (MVP).a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB1206952FA5C53CBD333540 /* libPods-SpaceXApp (MVP).a */; };
 		CC893CE7299E49290052387C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC893CE6299E49290052387C /* AppDelegate.swift */; };
 		CC893CE9299E49290052387C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC893CE8299E49290052387C /* SceneDelegate.swift */; };
 		CC893CEB299E49290052387C /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC893CEA299E49290052387C /* LaunchViewController.swift */; };
@@ -18,12 +19,18 @@
 		CC893D07299E4D050052387C /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC893D06299E4D050052387C /* Section.swift */; };
 		CC893D09299E4D220052387C /* NetworkUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC893D08299E4D220052387C /* NetworkUrl.swift */; };
 		CC893D0B299E4D5D0052387C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC893D0A299E4D5D0052387C /* NetworkManager.swift */; };
-		CC893D0D299E525A0052387C /* LaunchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC893D0C299E525A0052387C /* LaunchCell.swift */; };
+		CC893D0D299E525A0052387C /* LaunchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC893D0C299E525A0052387C /* LaunchViewCell.swift */; };
 		CC893D10299E53D60052387C /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC893D0F299E53D60052387C /* UITableViewCell.swift */; };
+		CCA893F629A3AB3400A6101F /* UICollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA893F529A3AB3400A6101F /* UICollectionReusableView.swift */; };
+		CCA8940E29A3AE9F00A6101F /* RocketPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA8940D29A3AE9F00A6101F /* RocketPresenter.swift */; };
+		CCA8941029A3AEE700A6101F /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA8940F29A3AEE700A6101F /* SettingsPresenter.swift */; };
 		CCD0564F299E96E800C1457E /* LaunchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD0564E299E96E800C1457E /* LaunchPresenter.swift */; };
+		CCD249E129A543BE004414B8 /* LaunchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD249E029A543BE004414B8 /* LaunchCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6537A43B67518A738A8F61D6 /* Pods-SpaceXApp (MVP).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceXApp (MVP).debug.xcconfig"; path = "Target Support Files/Pods-SpaceXApp (MVP)/Pods-SpaceXApp (MVP).debug.xcconfig"; sourceTree = "<group>"; };
+		7231C7E2EA98C7DA7CE03A4D /* Pods-SpaceXApp (MVP).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceXApp (MVP).release.xcconfig"; path = "Target Support Files/Pods-SpaceXApp (MVP)/Pods-SpaceXApp (MVP).release.xcconfig"; sourceTree = "<group>"; };
 		CC893CE3299E49290052387C /* SpaceXApp (MVP).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SpaceXApp (MVP).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC893CE6299E49290052387C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC893CE8299E49290052387C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,9 +44,14 @@
 		CC893D06299E4D050052387C /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		CC893D08299E4D220052387C /* NetworkUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUrl.swift; sourceTree = "<group>"; };
 		CC893D0A299E4D5D0052387C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		CC893D0C299E525A0052387C /* LaunchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCell.swift; sourceTree = "<group>"; };
+		CC893D0C299E525A0052387C /* LaunchViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewCell.swift; sourceTree = "<group>"; };
 		CC893D0F299E53D60052387C /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
+		CCA893F529A3AB3400A6101F /* UICollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionReusableView.swift; sourceTree = "<group>"; };
+		CCA8940D29A3AE9F00A6101F /* RocketPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketPresenter.swift; sourceTree = "<group>"; };
+		CCA8940F29A3AEE700A6101F /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		CCD0564E299E96E800C1457E /* LaunchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPresenter.swift; sourceTree = "<group>"; };
+		CCD249E029A543BE004414B8 /* LaunchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCell.swift; sourceTree = "<group>"; };
+		FB1206952FA5C53CBD333540 /* libPods-SpaceXApp (MVP).a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SpaceXApp (MVP).a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,17 +59,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53B81EE119A94A4B5C52B049 /* libPods-SpaceXApp (MVP).a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1922F67BAB384CC36A497069 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6537A43B67518A738A8F61D6 /* Pods-SpaceXApp (MVP).debug.xcconfig */,
+				7231C7E2EA98C7DA7CE03A4D /* Pods-SpaceXApp (MVP).release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8B735E686526B003DF77AF54 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FB1206952FA5C53CBD333540 /* libPods-SpaceXApp (MVP).a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CC893CDA299E49290052387C = {
 			isa = PBXGroup;
 			children = (
 				CC893CE5299E49290052387C /* SpaceXApp (MVP) */,
 				CC893CE4299E49290052387C /* Products */,
+				1922F67BAB384CC36A497069 /* Pods */,
+				8B735E686526B003DF77AF54 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,13 +104,13 @@
 		CC893CE5299E49290052387C /* SpaceXApp (MVP) */ = {
 			isa = PBXGroup;
 			children = (
-				CC893CFA299E4B170052387C /* Presenter */,
-				CC893CFB299E4B1C0052387C /* View */,
 				CC893CFC299E4B200052387C /* Model */,
+				CC893CFB299E4B1C0052387C /* View */,
+				CC893CFA299E4B170052387C /* Presenter */,
 				CC893D0E299E53B50052387C /* Extension */,
-				CC893CE8299E49290052387C /* SceneDelegate.swift */,
-				CC893CE6299E49290052387C /* AppDelegate.swift */,
 				CC893CEF299E492A0052387C /* Assets.xcassets */,
+				CC893CE6299E49290052387C /* AppDelegate.swift */,
+				CC893CE8299E49290052387C /* SceneDelegate.swift */,
 				CC893CF4299E492A0052387C /* Info.plist */,
 			);
 			path = "SpaceXApp (MVP)";
@@ -88,6 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				CCD0564E299E96E800C1457E /* LaunchPresenter.swift */,
+				CCA8940D29A3AE9F00A6101F /* RocketPresenter.swift */,
+				CCA8940F29A3AEE700A6101F /* SettingsPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -96,7 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				CC893CEA299E49290052387C /* LaunchViewController.swift */,
-				CC893D0C299E525A0052387C /* LaunchCell.swift */,
+				CC893D0C299E525A0052387C /* LaunchViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -108,6 +142,7 @@
 				CC893D08299E4D220052387C /* NetworkUrl.swift */,
 				CC893D00299E4CAA0052387C /* Rocket.swift */,
 				CC893CFE299E4C5F0052387C /* Launch.swift */,
+				CCD249E029A543BE004414B8 /* LaunchCell.swift */,
 				CC893D02299E4CC50052387C /* Settings.swift */,
 				CC893D04299E4CDD0052387C /* UserSettings.swift */,
 				CC893D06299E4D050052387C /* Section.swift */,
@@ -119,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				CC893D0F299E53D60052387C /* UITableViewCell.swift */,
+				CCA893F529A3AB3400A6101F /* UICollectionReusableView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -130,6 +166,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CC893CF7299E492A0052387C /* Build configuration list for PBXNativeTarget "SpaceXApp (MVP)" */;
 			buildPhases = (
+				C98410FE88D65B401470DBF3 /* [CP] Check Pods Manifest.lock */,
 				CC893CDF299E49290052387C /* Sources */,
 				CC893CE0299E49290052387C /* Frameworks */,
 				CC893CE1299E49290052387C /* Resources */,
@@ -187,16 +224,44 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C98410FE88D65B401470DBF3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SpaceXApp (MVP)-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CC893CDF299E49290052387C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				CC893D03299E4CC50052387C /* Settings.swift in Sources */,
+				CCA893F629A3AB3400A6101F /* UICollectionReusableView.swift in Sources */,
+				CCA8941029A3AEE700A6101F /* SettingsPresenter.swift in Sources */,
 				CC893D09299E4D220052387C /* NetworkUrl.swift in Sources */,
 				CC893D0B299E4D5D0052387C /* NetworkManager.swift in Sources */,
+				CCA8940E29A3AE9F00A6101F /* RocketPresenter.swift in Sources */,
 				CC893CEB299E49290052387C /* LaunchViewController.swift in Sources */,
-				CC893D0D299E525A0052387C /* LaunchCell.swift in Sources */,
+				CC893D0D299E525A0052387C /* LaunchViewCell.swift in Sources */,
 				CC893CE7299E49290052387C /* AppDelegate.swift in Sources */,
 				CC893CFF299E4C5F0052387C /* Launch.swift in Sources */,
 				CC893D05299E4CDD0052387C /* UserSettings.swift in Sources */,
@@ -204,6 +269,7 @@
 				CC893D07299E4D050052387C /* Section.swift in Sources */,
 				CCD0564F299E96E800C1457E /* LaunchPresenter.swift in Sources */,
 				CC893D01299E4CAA0052387C /* Rocket.swift in Sources */,
+				CCD249E129A543BE004414B8 /* LaunchCell.swift in Sources */,
 				CC893CE9299E49290052387C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,6 +393,7 @@
 		};
 		CC893CF8299E492A0052387C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6537A43B67518A738A8F61D6 /* Pods-SpaceXApp (MVP).debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -354,6 +421,7 @@
 		};
 		CC893CF9299E492A0052387C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7231C7E2EA98C7DA7CE03A4D /* Pods-SpaceXApp (MVP).release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
