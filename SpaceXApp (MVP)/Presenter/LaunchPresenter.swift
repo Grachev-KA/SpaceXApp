@@ -29,9 +29,9 @@ extension LaunchPresenter: LaunchPresenterProtocol {
             switch result {
             case let .success(launches):
                 let launchesFiltered = launches.filter { $0.rocket == self.rocketId }
-                
                 var launchesCells = [LaunchCell]()
-                for launch in launchesFiltered {
+
+                launchesFiltered.forEach { launch in
                     let name = launch.name
                     let dateUtc = self.dateFormatter.string(from: launch.dateUtc)
                     let image = launch.success == true ? "launchOk" : "launchFail"
