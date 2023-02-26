@@ -1,7 +1,7 @@
 import UIKit
 
 final class SettingsTableViewCell: UITableViewCell {
-    lazy private var presenter = SettingsPresenter(view: self)
+    var onSettingChanged: ((Int) -> Void)?
     
     private let label: UILabel = {
         let label = UILabel()
@@ -27,7 +27,6 @@ final class SettingsTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         backgroundColor = .black
-        
         setView()
         setLayout()
     }
@@ -37,18 +36,18 @@ final class SettingsTableViewCell: UITableViewCell {
     }
     
     @objc func handleSegmentedControlValueChanged(_ sender: UISegmentedControl) {
-        presenter.saveUserSettings(selectedSegmentIndex: sender.selectedSegmentIndex)
+        onSettingChanged?(sender.selectedSegmentIndex)
     }
     
     func setupCell(setting: SettingsModel, selectedUnit: SettingsModel.Units?) {
         label.text = setting.type.rawValue
 
-        if let selectedUnit = selectedUnit {
-            segmentedControl.selectedSegmentIndex = setting.units.firstIndex(of: selectedUnit) ?? 0
-        }
-
         for unit in setting.units {
             segmentedControl.insertSegment(withTitle: unit.rawValue, at: 1, animated: false)
+        }
+        
+        if let selectedUnit = selectedUnit {
+            segmentedControl.selectedSegmentIndex = setting.units.firstIndex(of: selectedUnit) ?? 0
         }
     }
     
@@ -70,15 +69,5 @@ final class SettingsTableViewCell: UITableViewCell {
             segmentedControl.widthAnchor.constraint(equalToConstant: 100)
         ]
         NSLayoutConstraint.activate(constraints)
-    }
-}
-
-// MARK: - SettingsViewProtocol
-
-extension SettingsTableViewCell: SettingsViewProtocol { //Лишний код - это нормально?
-    func present(availableSettings: [SettingsModel]) {
-    }
-
-    func present(selectedUnit: SettingsModel.Units?) {
     }
 }

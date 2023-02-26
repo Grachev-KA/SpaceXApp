@@ -6,12 +6,11 @@ protocol SettingsViewProtocol: AnyObject {
 protocol SettingsPresenterProtocol: AnyObject {
     func getSettings()
     func getUserSettings(setting: SettingsModel)
-    func saveUserSettings(selectedSegmentIndex: Int)
+    func saveUserSettings(setting: SettingsModel?, selectedSegmentIndex: Int)
 }
 
 final class SettingsPresenter {
     weak var view: SettingsViewProtocol?
-    private var setting: SettingsModel?
     private let userSettings = UserSettings()
     
     init(view: SettingsViewProtocol?) {
@@ -32,8 +31,8 @@ extension SettingsPresenter: SettingsPresenterProtocol {
         view?.present(selectedUnit: selectedUnit)
     }
     
-    func saveUserSettings(selectedSegmentIndex: Int) {
-        guard let setting = setting else { return } //setting всегда nil
+    func saveUserSettings(setting: SettingsModel?, selectedSegmentIndex: Int) {
+        guard let setting = setting else { return }
         selectedSegmentIndex == 0 ? userSettings.save(setting: setting.type, value: setting.units[0]) : userSettings.save(setting: setting.type, value: setting.units[1])
     }
 }

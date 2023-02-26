@@ -47,6 +47,11 @@ extension SettingsViewController: UITableViewDataSource {
         presenter.getUserSettings(setting: setting)
         (cell as? SettingsTableViewCell)?.setupCell(setting: setting, selectedUnit: selectedUnit)
         cell.selectionStyle = .none
+        
+        (cell as? SettingsTableViewCell)?.onSettingChanged = { selectedSegmentIndex in
+            self.presenter.saveUserSettings(setting: setting, selectedSegmentIndex: selectedSegmentIndex)
+        }
+        
         return cell
     }
 }
