@@ -35,8 +35,8 @@ final class LaunchViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        loadAllView()
-        loadAllViewLayout()
+        setView()
+        setLayout()
         
         contentView.backgroundColor = .black
     }
@@ -51,14 +51,14 @@ final class LaunchViewCell: UITableViewCell {
         imageLaunch.image = imageLaunchStatus
     }
     
-    private func loadAllView() {
+    private func setView() {
         contentView.addSubview(cellFrame)
         contentView.addSubview(nameLaunch)
         contentView.addSubview(dateLaunch)
         contentView.addSubview(imageLaunch)
     }
     
-    private func loadAllViewLayout() {
+    private func setLayout() {
         let constraints = [
             cellFrame.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
             cellFrame.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5),

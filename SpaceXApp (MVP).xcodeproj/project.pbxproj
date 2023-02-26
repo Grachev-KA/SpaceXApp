@@ -26,7 +26,7 @@
 		CCD0564F299E96E800C1457E /* LaunchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD0564E299E96E800C1457E /* LaunchPresenter.swift */; };
 		CCD249E129A543BE004414B8 /* LaunchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD249E029A543BE004414B8 /* LaunchCell.swift */; };
 		CCD249E329A672F9004414B8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD249E229A672F9004414B8 /* SettingsViewController.swift */; };
-		CCD249E729A67324004414B8 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD249E629A67324004414B8 /* SettingTableViewCell.swift */; };
+		CCD249E729A67324004414B8 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD249E629A67324004414B8 /* SettingsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,7 +52,7 @@
 		CCD0564E299E96E800C1457E /* LaunchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPresenter.swift; sourceTree = "<group>"; };
 		CCD249E029A543BE004414B8 /* LaunchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCell.swift; sourceTree = "<group>"; };
 		CCD249E229A672F9004414B8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		CCD249E629A67324004414B8 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		CCD249E629A67324004414B8 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		FB1206952FA5C53CBD333540 /* libPods-SpaceXApp (MVP).a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SpaceXApp (MVP).a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -133,7 +133,7 @@
 				CC893CEA299E49290052387C /* LaunchViewController.swift */,
 				CC893D0C299E525A0052387C /* LaunchViewCell.swift */,
 				CCD249E229A672F9004414B8 /* SettingsViewController.swift */,
-				CCD249E629A67324004414B8 /* SettingTableViewCell.swift */,
+				CCD249E629A67324004414B8 /* SettingsTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -268,7 +268,7 @@
 				CC893CFF299E4C5F0052387C /* Launch.swift in Sources */,
 				CC893D05299E4CDD0052387C /* UserSettings.swift in Sources */,
 				CC893D10299E53D60052387C /* UITableViewCell.swift in Sources */,
-				CCD249E729A67324004414B8 /* SettingTableViewCell.swift in Sources */,
+				CCD249E729A67324004414B8 /* SettingsTableViewCell.swift in Sources */,
 				CC893D07299E4D050052387C /* Section.swift in Sources */,
 				CCD249E329A672F9004414B8 /* SettingsViewController.swift in Sources */,
 				CCD0564F299E96E800C1457E /* LaunchPresenter.swift in Sources */,

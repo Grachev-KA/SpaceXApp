@@ -2,12 +2,13 @@ import UIKit
 
 final class SettingsViewController: UIViewController {
     lazy private var presenter = SettingsPresenter(view: self)
-    private var settings = [SettingsModel]()
+    private var availableSettings = [SettingsModel]()
+    private var selectedUnit: SettingsModel.Units?
     
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(SettingTableViewCell.self, forCellReuseIdentifier: SettingTableViewCell.reuseIdentifier)
+        tableView.register(SettingsTableViewCell.self, forCellReuseIdentifier: SettingsTableViewCell.reuseIdentifier)
         tableView.backgroundColor = .black
         return tableView
     }()
@@ -20,6 +21,7 @@ final class SettingsViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         presenter.getSettings()
+        tableView.reloadData()
         setLayout()
     }
     
@@ -36,14 +38,14 @@ final class SettingsViewController: UIViewController {
 
 extension SettingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        settings.count
+        availableSettings.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.reuseIdentifier, for: indexPath)
-        let setting = settings[indexPath.row]
-        let selectedUnit = setting.selectedUnit
-        (cell as? SettingTableViewCell)?.setup(setting: setting, selectedUnit: selectedUnit)
+        let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.reuseIdentifier, for: indexPath)
+        let setting = availableSettings[indexPath.row]
+        presenter.getUserSettings(setting: setting)
+        (cell as? SettingsTableViewCell)?.setupCell(setting: setting, selectedUnit: selectedUnit)
         cell.selectionStyle = .none
         return cell
     }
@@ -55,9 +57,14 @@ extension SettingsViewController: UITableViewDelegate {
     }
 }
 
+// MARK: - SettingsViewProtocol
+
 extension SettingsViewController: SettingsViewProtocol {
-    func present(settings: [SettingsModel]) {
-        self.settings = settings
-        tableView.reloadData()
+    func present(availableSettings: [SettingsModel]) {
+        self.availableSettings = availableSettings
+    }
+    
+    func present(selectedUnit: SettingsModel.Units?) {
+        self.selectedUnit = selectedUnit
     }
 }

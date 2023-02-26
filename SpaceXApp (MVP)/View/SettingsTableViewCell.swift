@@ -1,8 +1,7 @@
 import UIKit
 
-final class SettingTableViewCell: UITableViewCell {
-    private let userSettings = UserSettings()
-    private var setting: SettingsModel?
+final class SettingsTableViewCell: UITableViewCell {
+    lazy private var presenter = SettingsPresenter(view: self)
     
     private let label: UILabel = {
         let label = UILabel()
@@ -29,8 +28,8 @@ final class SettingTableViewCell: UITableViewCell {
         
         backgroundColor = .black
         
-        loadAllView()
-        loadAllViewLayout()
+        setView()
+        setLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -38,29 +37,27 @@ final class SettingTableViewCell: UITableViewCell {
     }
     
     @objc func handleSegmentedControlValueChanged(_ sender: UISegmentedControl) {
-        guard let setting = setting else { return }
-        sender.selectedSegmentIndex == 0 ? userSettings.save(setting: setting.type, value: setting.units[0]) : userSettings.save(setting: setting.type, value: setting.units[1])
+        presenter.saveUserSettings(selectedSegmentIndex: sender.selectedSegmentIndex)
     }
     
-    func setup(setting: SettingsModel, selectedUnit: SettingsModel.Units?) {
-        self.setting = setting
+    func setupCell(setting: SettingsModel, selectedUnit: SettingsModel.Units?) {
         label.text = setting.type.rawValue
-        
+
         if let selectedUnit = selectedUnit {
             segmentedControl.selectedSegmentIndex = setting.units.firstIndex(of: selectedUnit) ?? 0
         }
-        
+
         for unit in setting.units {
             segmentedControl.insertSegment(withTitle: unit.rawValue, at: 1, animated: false)
         }
     }
     
-    private func loadAllView() {
+    private func setView() {
         contentView.addSubview(label)
         contentView.addSubview(segmentedControl)
     }
     
-    private func loadAllViewLayout() {
+    private func setLayout() {
         let constraints = [
             label.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
             label.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
@@ -73,5 +70,15 @@ final class SettingTableViewCell: UITableViewCell {
             segmentedControl.widthAnchor.constraint(equalToConstant: 100)
         ]
         NSLayoutConstraint.activate(constraints)
+    }
+}
+
+// MARK: - SettingsViewProtocol
+
+extension SettingsTableViewCell: SettingsViewProtocol { //Лишний код - это нормально?
+    func present(availableSettings: [SettingsModel]) {
+    }
+
+    func present(selectedUnit: SettingsModel.Units?) {
     }
 }
