@@ -1,9 +1,9 @@
 import UIKit
 
 final class SettingsViewController: UIViewController {
-    lazy private var presenter = SettingsPresenter(view: self)
+    private lazy var presenter = SettingsPresenter(view: self)
     private var availableSettings = [SettingsModel]()
-    private var selectedUnit: SettingsModel.Units?
+    private var selectedUnits = [SettingsModel.Units?]()
     
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -20,8 +20,7 @@ final class SettingsViewController: UIViewController {
         view.backgroundColor = .black
         tableView.dataSource = self
         tableView.delegate = self
-        presenter.getSettings()
-        tableView.reloadData()
+        presenter.getSettingsModelAndUserSettings()
         setLayout()
     }
     
@@ -36,6 +35,8 @@ final class SettingsViewController: UIViewController {
     }
 }
 
+//MARK: - UITableViewDataSource
+
 extension SettingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         availableSettings.count
@@ -44,17 +45,20 @@ extension SettingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.reuseIdentifier, for: indexPath)
         let setting = availableSettings[indexPath.row]
-        presenter.getUserSettings(setting: setting)
+        let selectedUnit = selectedUnits[indexPath.row]
+
         (cell as? SettingsTableViewCell)?.setupCell(setting: setting, selectedUnit: selectedUnit)
         cell.selectionStyle = .none
         
-        (cell as? SettingsTableViewCell)?.onSettingChanged = { selectedSegmentIndex in
-            self.presenter.saveUserSettings(setting: setting, selectedSegmentIndex: selectedSegmentIndex)
+        (cell as? SettingsTableViewCell)?.onSettingChanged = { [weak self] selectedSegmentIndex in
+            guard let self = self else { return }
+            self.presenter.saveUserSettings(setting: setting, unit: setting.units[selectedSegmentIndex])
         }
-        
         return cell
     }
 }
+
+//MARK: - UITableViewDelegate
 
 extension SettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -65,11 +69,9 @@ extension SettingsViewController: UITableViewDelegate {
 // MARK: - SettingsViewProtocol
 
 extension SettingsViewController: SettingsViewProtocol {
-    func present(availableSettings: [SettingsModel]) {
+    func present(availableSettings: [SettingsModel], selectedUnits: [SettingsModel.Units?]) {
         self.availableSettings = availableSettings
-    }
-    
-    func present(selectedUnit: SettingsModel.Units?) {
-        self.selectedUnit = selectedUnit
+        self.selectedUnits = selectedUnits
+        tableView.reloadData()
     }
 }

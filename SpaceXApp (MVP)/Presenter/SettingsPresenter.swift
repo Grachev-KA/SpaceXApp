@@ -1,12 +1,10 @@
 protocol SettingsViewProtocol: AnyObject {
-    func present(availableSettings: [SettingsModel])
-    func present(selectedUnit: SettingsModel.Units?)
+    func present(availableSettings: [SettingsModel], selectedUnits: [SettingsModel.Units?])
 }
 
 protocol SettingsPresenterProtocol: AnyObject {
-    func getSettings()
-    func getUserSettings(setting: SettingsModel)
-    func saveUserSettings(setting: SettingsModel?, selectedSegmentIndex: Int)
+    func getSettingsModelAndUserSettings()
+    func saveUserSettings(setting: SettingsModel, unit: SettingsModel.Units)
 }
 
 final class SettingsPresenter {
@@ -21,18 +19,14 @@ final class SettingsPresenter {
 // MARK: - SettingsPresenterProtocol
 
 extension SettingsPresenter: SettingsPresenterProtocol {
-    func getSettings() {
+    func getSettingsModelAndUserSettings() {
         let availableSettings = SettingsModel.availableSettings()
-        view?.present(availableSettings: availableSettings)
+        let selectedUnits = availableSettings.map { setting in userSettings.get(setting: setting.type)
+        }
+        view?.present(availableSettings: availableSettings, selectedUnits: selectedUnits)
     }
     
-    func getUserSettings(setting: SettingsModel) {
-        let selectedUnit = userSettings.get(setting: setting.type)
-        view?.present(selectedUnit: selectedUnit)
-    }
-    
-    func saveUserSettings(setting: SettingsModel?, selectedSegmentIndex: Int) {
-        guard let setting = setting else { return }
-        selectedSegmentIndex == 0 ? userSettings.save(setting: setting.type, value: setting.units[0]) : userSettings.save(setting: setting.type, value: setting.units[1])
+    func saveUserSettings(setting: SettingsModel, unit: SettingsModel.Units) {
+        userSettings.save(setting: setting.type, value: unit)
     }
 }
