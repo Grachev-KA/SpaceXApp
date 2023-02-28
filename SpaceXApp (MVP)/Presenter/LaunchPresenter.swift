@@ -28,18 +28,15 @@ extension LaunchPresenter: LaunchPresenterProtocol {
         networkManager.getLaunches(NetworkUrl.launches) { result in
             switch result {
             case let .success(launches):
-                let launchesFiltered = launches.filter { $0.rocket == self.rocketId }
-                
-                var launchesCells = [LaunchCell]()
-                for launch in launchesFiltered {
-                    let name = launch.name
-                    let dateUtc = self.dateFormatter.string(from: launch.dateUtc)
-                    let image = launch.success == true ? "launchOk" : "launchFail"
-                    let launchCell = LaunchCell(name: name, dateUtc: dateUtc, image: image)
-                    launchesCells.append(launchCell)
-                }
-                
+                let launchesCells = launches.filter { $0.rocket == self.rocketId }
+                    .map { launch in
+                        let name = launch.name
+                        let dateUtc = self.dateFormatter.string(from: launch.dateUtc)
+                        let image = launch.success == true ? "launchOk" : "launchFail"
+                        return LaunchCell(name: name, dateUtc: dateUtc, image: image)
+                    }
                 self.view?.present(launchesCells: launchesCells)
+                
             case let .failure(error):
                 print(error)
             }

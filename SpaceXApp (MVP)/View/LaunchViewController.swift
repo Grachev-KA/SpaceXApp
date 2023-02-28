@@ -2,7 +2,7 @@ import UIKit
 import Foundation
 
 final class LaunchViewController: UIViewController {
-    lazy private var presenter = LaunchPresenter(view: self, rocketId: "5e9d0d95eda69955f709d1eb")
+    private lazy var presenter = LaunchPresenter(view: self, rocketId: "5e9d0d95eda69955f709d1eb")
     private var launchesCells = [LaunchCell]()
     
     private let tableView: UITableView = {
@@ -15,7 +15,7 @@ final class LaunchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .darkGray
+        view.backgroundColor = .black
         view.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
