@@ -51,6 +51,11 @@ final class SettingsTableViewCell: UITableViewCell {
         }
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        segmentedControl.removeAllSegments()
+    }
+    
     private func setView() {
         contentView.addSubview(label)
         contentView.addSubview(segmentedControl)
