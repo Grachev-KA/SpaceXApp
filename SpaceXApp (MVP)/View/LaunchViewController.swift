@@ -16,11 +16,15 @@ final class LaunchViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .black
-        view.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
         presenter.getLaunches()
+        setViews()
         setLayout()
+    }
+    
+    private func setViews() {
+        view.addSubview(tableView)
     }
     
     private func setLayout() {

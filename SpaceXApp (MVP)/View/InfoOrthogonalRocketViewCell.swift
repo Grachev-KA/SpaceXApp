@@ -26,8 +26,8 @@ final class InfoOrthogonalRocketViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        loadAllView()
-        loadAllViewLayout()
+        setViews()
+        setLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -39,13 +39,13 @@ final class InfoOrthogonalRocketViewCell: UICollectionViewCell {
         valueLabel.text = value
     }
         
-    private func loadAllView() {
+    private func setViews() {
         contentView.addSubview(cellFrame)
         contentView.addSubview(titleLabel)
         contentView.addSubview(valueLabel)
     }
         
-    private func loadAllViewLayout() {
+    private func setLayout() {
         let constraints = [
             cellFrame.topAnchor.constraint(equalTo: self.topAnchor),
             cellFrame.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),

@@ -2,6 +2,8 @@ import UIKit
 import Kingfisher
 
 final class RocketViewController: UIViewController {
+    private lazy var presenter = RocketPresenter(view: self)
+    private var sections = [Section]()
     private let rocket: Rocket
     private lazy var collectionView = createCollectionView()
     private lazy var dataSource = createDataSource()
@@ -18,17 +20,17 @@ final class RocketViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        presenter.getSections(rocket: rocket)
         collectionView.dataSource = dataSource
         
-        dataSource.supplementaryViewProvider = { [unowned self] collectionView, kind, indexPath in
-            self.createSupplementary(collectionView: collectionView, kind: kind, indexPath: indexPath)
+        dataSource.supplementaryViewProvider = { [weak self] collectionView, kind, indexPath in
+            self?.createSupplementary(collectionView: collectionView, kind: kind, indexPath: indexPath)
         }
-        
-        createSections()
-        loadAllViews()
+        createSnapshot()
+        setViews()
     }
     
-    private func loadAllViews() {
+    private func setViews() {
         view.addSubview(collectionView)
     }
 }
@@ -73,7 +75,6 @@ extension RocketViewController {
         verticalSection.boundarySupplementaryItems = [headerSection]
         verticalSection.contentInsets = NSDirectionalEdgeInsets(top: -20, leading: 0, bottom: 20, trailing: 0)
         
-        
         let buttonItemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
             heightDimension: .fractionalHeight(1))
@@ -115,19 +116,19 @@ extension RocketViewController {
             case let .info(title: title, value: value):
                 if self?.dataSource.snapshot().sectionIdentifiers[indexPath.section] == .orthogonal {
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InfoOrthogonalRocketViewCell.reuseIdentifier, for: indexPath)
-                    (cell as? InfoOrthogonalRocketsCollectionViewCell)?.setupViews(title: title, value: value)
+                    (cell as? InfoOrthogonalRocketViewCell)?.setupViews(title: title, value: value)
                     return cell
                     
                 } else {
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InfoVerticalRocketViewCell.reuseIdentifier, for: indexPath)
-                    (cell as? InfoVerticalRocketsCollectionViewCell)?.setupViews(title: title, value: value)
+                    (cell as? InfoVerticalRocketViewCell)?.setupViews(title: title, value: value)
                     return cell
                 }
                 
             case .button:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ButtonRocketViewCell.reuseIdentifier, for: indexPath)
-                (cell as? ButtonRocketsCollectionViewCell)?.launchesButtonOnClick = { [weak self] in
-                    let vc = LaunchesViewController()
+                (cell as? ButtonRocketViewCell)?.launchesButtonOnClick = { [weak self] in
+                    let vc = LaunchViewController()
                     self?.present(vc, animated: true)
                 }
                 return cell
@@ -145,17 +146,25 @@ extension RocketViewController {
     }
 }
 
-//MARK: - Sections + Snapshot
+//MARK: - NSDiffableDataSourceSnapshot
 
 extension RocketViewController {
-    private func createSections() {
-        let sections = Section.makeCells(rocket: rocket)
+    private func createSnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<Section.SectionType, Section.CellType>()
-        for section in sections {
+
+        sections.forEach { section in
             snapshot.appendSections([section.type])
             snapshot.appendItems(section.cells, toSection: section.type)
         }
         dataSource.apply(snapshot)
+    }
+}
+
+//MARK: - RocketViewProtocol
+
+extension RocketViewController: RocketViewProtocol {
+    func present(sections: [Section]) {
+        self.sections = sections
     }
 }
 

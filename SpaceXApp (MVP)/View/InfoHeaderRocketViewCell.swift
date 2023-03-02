@@ -12,8 +12,8 @@ final class InfoHeaderRocketViewCell: UICollectionReusableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        loadAllView()
-        loadAllViewLayout()
+        setViews()
+        setLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -24,11 +24,11 @@ final class InfoHeaderRocketViewCell: UICollectionReusableView {
         headerInfoVertical.text = title
     }
         
-    private func loadAllView() {
+    private func setViews() {
         addSubview(headerInfoVertical)
     }
         
-    private func loadAllViewLayout() {
+    private func setLayout() {
         let constraints = [
             headerInfoVertical.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
             headerInfoVertical.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5),

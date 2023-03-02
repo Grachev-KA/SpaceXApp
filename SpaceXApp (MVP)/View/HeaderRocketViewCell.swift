@@ -41,8 +41,8 @@ final class HeaderRocketsCollectionViewCell: UICollectionViewCell {
         
         settingsButton.addTarget(self, action: #selector(clickSettingsButton), for: .touchUpInside)
         
-        loadAllView()
-        loadAllViewLayout()
+        setViews()
+        setLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -58,14 +58,14 @@ final class HeaderRocketsCollectionViewCell: UICollectionViewCell {
         settingsButtonOnClick?()
     }
     
-    private func loadAllView() {
+    private func setViews() {
         contentView.addSubview(rocketImageView)
         contentView.addSubview(cellFrame)
         contentView.addSubview(titleLabel)
         contentView.addSubview(settingsButton)
     }
         
-    private func loadAllViewLayout() {
+    private func setLayout() {
         let constraints = [
             rocketImageView.topAnchor.constraint(equalTo: self.topAnchor),
             rocketImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor),

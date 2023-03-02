@@ -23,8 +23,8 @@ final class ButtonRocketViewCell: UICollectionViewCell {
         
         launchesButton.addTarget(self, action: #selector(clickLaunchesButton), for: .touchUpInside)
         
-        loadAllView()
-        loadAllViewLayout()
+        setViews()
+        setLayout()
         
         contentView.backgroundColor = .black
     }
@@ -37,12 +37,12 @@ final class ButtonRocketViewCell: UICollectionViewCell {
         launchesButtonOnClick?()
     }
     
-    private func loadAllView() {
+    private func setViews() {
         contentView.addSubview(cellFrame)
         contentView.addSubview(launchesButton)
     }
     
-    private func loadAllViewLayout() {
+    private func setLayout() {
         let constraints = [
             cellFrame.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
             cellFrame.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5),
