@@ -14,7 +14,7 @@ final class LaunchPresenter {
     private let dateFormatter = DateFormatter()
     private let rocketId: String
     
-    init(view: LaunchViewProtocol, rocketId: String) {
+    init(view: LaunchViewProtocol?, rocketId: String) {
         self.view = view
         self.rocketId = rocketId
         dateFormatter.dateFormat = "dd MMMM yyyy"

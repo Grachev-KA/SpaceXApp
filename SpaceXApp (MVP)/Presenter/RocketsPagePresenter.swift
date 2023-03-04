@@ -12,7 +12,7 @@ final class RocketsPagePresenter {
     weak var view: RocketsPageViewProtocol?
     private let networkManager = NetworkManager()
     
-    init(view: RocketsPageViewProtocol) {
+    init(view: RocketsPageViewProtocol?) {
         self.view = view
     }
 }

@@ -40,7 +40,6 @@ final class HeaderRocketsCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         settingsButton.addTarget(self, action: #selector(clickSettingsButton), for: .touchUpInside)
-        
         setViews()
         setLayout()
     }

@@ -2,17 +2,18 @@ import UIKit
 import Kingfisher
 
 final class RocketViewController: UIViewController {
-    private lazy var presenter = RocketPresenter(view: self)
+    private let presenter: RocketPresenter
     private var sections = [Section]()
-    private let rocket: Rocket
+    private var rocketId: String
     private lazy var collectionView = createCollectionView()
     private lazy var dataSource = createDataSource()
     
-    init(rocket: Rocket) {
-        self.rocket = rocket
+    init(presenter: RocketPresenter, rocketId: String) {
+        self.presenter = presenter
+        self.rocketId = rocketId
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -20,7 +21,7 @@ final class RocketViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        presenter.getSections(rocket: rocket)
+        presenter.getSections()
         collectionView.dataSource = dataSource
         
         dataSource.supplementaryViewProvider = { [weak self] collectionView, kind, indexPath in
@@ -128,7 +129,9 @@ extension RocketViewController {
             case .button:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ButtonRocketViewCell.reuseIdentifier, for: indexPath)
                 (cell as? ButtonRocketViewCell)?.launchesButtonOnClick = { [weak self] in
-                    let vc = LaunchViewController()
+                    let presenter = LaunchPresenter(view: nil, rocketId: self?.rocketId ?? "rocketId error")
+                    let vc = LaunchViewController(presenter: presenter)
+                    presenter.view = vc
                     self?.present(vc, animated: true)
                 }
                 return cell
@@ -163,8 +166,9 @@ extension RocketViewController {
 //MARK: - RocketViewProtocol
 
 extension RocketViewController: RocketViewProtocol {
-    func present(sections: [Section]) {
+    func present(sections: [Section], rocketId: String) {
         self.sections = sections
+        self.rocketId = rocketId
     }
 }
 

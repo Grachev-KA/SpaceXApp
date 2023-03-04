@@ -139,10 +139,10 @@
 		CC893CFA299E4B170052387C /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				CC268D4F29AEA8D80059FC64 /* RocketsPagePresenter.swift */,
+				CC268D4D29AE42B90059FC64 /* RocketPresenter.swift */,
 				CCD0564E299E96E800C1457E /* LaunchPresenter.swift */,
 				CCA8940F29A3AEE700A6101F /* SettingsPresenter.swift */,
-				CC268D4D29AE42B90059FC64 /* RocketPresenter.swift */,
-				CC268D4F29AEA8D80059FC64 /* RocketsPagePresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -150,17 +150,17 @@
 		CC893CFB299E4B1C0052387C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CC893CEA299E49290052387C /* LaunchViewController.swift */,
-				CC893D0C299E525A0052387C /* LaunchViewCell.swift */,
-				CCD249E229A672F9004414B8 /* SettingsViewController.swift */,
-				CCD249E629A67324004414B8 /* SettingsTableViewCell.swift */,
-				CC268D3F29AE40D90059FC64 /* RocketViewController.swift */,
 				CC268D4129AE40F30059FC64 /* RocketsPageViewController.swift */,
+				CC268D3F29AE40D90059FC64 /* RocketViewController.swift */,
 				CC268D4329AE41470059FC64 /* HeaderRocketViewCell.swift */,
 				CC268D4B29AE41F30059FC64 /* InfoHeaderRocketViewCell.swift */,
 				CC268D4529AE41780059FC64 /* InfoOrthogonalRocketViewCell.swift */,
 				CC268D4729AE419E0059FC64 /* InfoVerticalRocketViewCell.swift */,
 				CC268D4929AE41C40059FC64 /* ButtonRocketViewCell.swift */,
+				CC893CEA299E49290052387C /* LaunchViewController.swift */,
+				CC893D0C299E525A0052387C /* LaunchViewCell.swift */,
+				CCD249E229A672F9004414B8 /* SettingsViewController.swift */,
+				CCD249E629A67324004414B8 /* SettingsTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

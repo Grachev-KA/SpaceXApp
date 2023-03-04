@@ -2,7 +2,7 @@ import UIKit
 import Foundation
 
 final class LaunchViewController: UIViewController {
-    private lazy var presenter = LaunchPresenter(view: self, rocketId: "5e9d0d95eda69955f709d1eb")
+    private let presenter: LaunchPresenter
     private var launchesCells = [LaunchCell]()
     
     private let tableView: UITableView = {
@@ -11,6 +11,15 @@ final class LaunchViewController: UIViewController {
         tableView.register(LaunchViewCell.self, forCellReuseIdentifier: LaunchViewCell.reuseIdentifier)
         return tableView
     }()
+    
+    init(presenter: LaunchPresenter) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +46,8 @@ final class LaunchViewController: UIViewController {
         NSLayoutConstraint.activate(constraints)
     }
 }
+
+//MARK: - UITableViewDataSource
 
 extension LaunchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

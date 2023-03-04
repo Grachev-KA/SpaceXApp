@@ -14,7 +14,9 @@ final class RocketsPageViewController: UIPageViewController {
     
     private func createRocketViewController() {
         for rocket in rockets {
-            let vc = RocketViewController(rocket: rocket)
+            let presenter = RocketPresenter(view: nil, rocket: rocket)
+            let vc = RocketViewController(presenter: presenter, rocketId: rocket.id)
+            presenter.view = vc
             rocketViewController.append(vc)
         }
             setViewControllers([rocketViewController[0]], direction: .forward, animated: true)
