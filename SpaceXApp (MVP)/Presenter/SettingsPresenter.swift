@@ -11,7 +11,7 @@ final class SettingsPresenter {
     weak var view: SettingsViewProtocol?
     private let userSettings = UserSettings()
     
-    init(view: SettingsViewProtocol?) {
+    init(view: SettingsViewProtocol) {
         self.view = view
     }
 }

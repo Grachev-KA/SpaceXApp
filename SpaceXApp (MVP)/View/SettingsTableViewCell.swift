@@ -27,7 +27,7 @@ final class SettingsTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         backgroundColor = .black
-        setView()
+        setViews()
         setLayout()
     }
     
@@ -56,7 +56,7 @@ final class SettingsTableViewCell: UITableViewCell {
         segmentedControl.removeAllSegments()
     }
     
-    private func setView() {
+    private func setViews() {
         contentView.addSubview(label)
         contentView.addSubview(segmentedControl)
     }

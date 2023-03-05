@@ -35,10 +35,9 @@ final class LaunchViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        setView()
-        setLayout()
-        
         contentView.backgroundColor = .black
+        setViews()
+        setLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -51,7 +50,7 @@ final class LaunchViewCell: UITableViewCell {
         imageLaunch.image = imageLaunchStatus
     }
     
-    private func setView() {
+    private func setViews() {
         contentView.addSubview(cellFrame)
         contentView.addSubview(nameLaunch)
         contentView.addSubview(dateLaunch)
