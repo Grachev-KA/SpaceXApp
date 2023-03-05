@@ -21,12 +21,10 @@ final class ButtonRocketViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        contentView.backgroundColor = .black
         launchesButton.addTarget(self, action: #selector(clickLaunchesButton), for: .touchUpInside)
-        
         setViews()
         setLayout()
-        
-        contentView.backgroundColor = .black
     }
     
     required init?(coder: NSCoder) {

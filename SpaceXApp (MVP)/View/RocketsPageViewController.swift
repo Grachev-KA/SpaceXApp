@@ -13,13 +13,15 @@ final class RocketsPageViewController: UIPageViewController {
     }
     
     private func createRocketViewController() {
-        for rocket in rockets {
-            let presenter = RocketPresenter(view: nil, rocket: rocket)
-            let vc = RocketViewController(presenter: presenter, rocketId: rocket.id)
-            presenter.view = vc
-            rocketViewController.append(vc)
+        DispatchQueue.main.async {
+            for rocket in self.rockets {
+                let presenter = RocketPresenter(rocket: rocket)
+                let vc = RocketViewController(presenter: presenter, rocketId: rocket.id)
+                presenter.view = vc
+                self.rocketViewController.append(vc)
+            }
+            self.setViewControllers([self.rocketViewController[0]], direction: .forward, animated: true)
         }
-            setViewControllers([rocketViewController[0]], direction: .forward, animated: true)
     }
 }
 
@@ -56,8 +58,6 @@ extension RocketsPageViewController: UIPageViewControllerDataSource {
 extension RocketsPageViewController: RocketsPageViewProtocol {
     func present(rockets: [Rocket]) {
         self.rockets = rockets
-        DispatchQueue.main.sync {
-            createRocketViewController()
-        }
+        createRocketViewController()
     }
 }

@@ -23,10 +23,6 @@ final class RocketViewController: UIViewController {
         
         presenter.getSections()
         collectionView.dataSource = dataSource
-        
-        dataSource.supplementaryViewProvider = { [weak self] collectionView, kind, indexPath in
-            self?.createSupplementary(collectionView: collectionView, kind: kind, indexPath: indexPath)
-        }
         createSnapshot()
         setViews()
     }
@@ -104,11 +100,16 @@ extension RocketViewController {
 extension RocketViewController {
     private func createDataSource() -> UICollectionViewDiffableDataSource<Section.SectionType, Section.CellType> {
         UICollectionViewDiffableDataSource(collectionView: collectionView) { [weak self] collectionView, indexPath, item in
+            
+            self?.dataSource.supplementaryViewProvider = { collectionView, kind, indexPath in
+                self?.createSupplementary(collectionView: collectionView, kind: kind, indexPath: indexPath)
+            }
+            
             switch item {
             case let .header(image: image, title: title):
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeaderRocketsCollectionViewCell.reuseIdentifier, for: indexPath)
                 (cell as? HeaderRocketsCollectionViewCell)?.setupViews(imageURL: image, title: title)
-                (cell as? HeaderRocketsCollectionViewCell)?.settingsButtonOnClick = { [weak self] in
+                (cell as? HeaderRocketsCollectionViewCell)?.settingsButtonOnClick = {
                     let vc = SettingsViewController()
                     self?.present(vc, animated: true)
                 }
@@ -128,8 +129,8 @@ extension RocketViewController {
                 
             case .button:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ButtonRocketViewCell.reuseIdentifier, for: indexPath)
-                (cell as? ButtonRocketViewCell)?.launchesButtonOnClick = { [weak self] in
-                    let presenter = LaunchPresenter(view: nil, rocketId: self?.rocketId ?? "rocketId error")
+                (cell as? ButtonRocketViewCell)?.launchesButtonOnClick = { 
+                    let presenter = LaunchPresenter(rocketId: self?.rocketId ?? "rocketId error")
                     let vc = LaunchViewController(presenter: presenter)
                     presenter.view = vc
                     self?.present(vc, animated: true)
