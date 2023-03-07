@@ -20,7 +20,7 @@ final class NetworkManager {
         case invalidURL
     }
     
-    func getData<T: Decodable>(url: String, decoder: JSONDecoder, completionHandler: @escaping (Result<T, Error>) -> Void) {
+    private func getData<T: Decodable>(url: String, decoder: JSONDecoder, completionHandler: @escaping (Result<T, Error>) -> Void) {
         let session = URLSession(configuration: .default)
         
         guard let request = URL(string: url) else {

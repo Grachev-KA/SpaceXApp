@@ -1,4 +1,4 @@
-target 'SpaceXApp (MVP)' do
+target 'SpaceXApp' do
 
 pod 'Kingfisher'
 
