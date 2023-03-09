@@ -27,7 +27,7 @@ final class LaunchPresenterTests: XCTestCase {
     }
     
     func testLaunches() {
-        let dateFirst = dateFormatter.date(from: "2006-03-24T22:30:00.000Z")
+        let dateFirst = dateFormatter.date(from: "2006-03-23T22:30:00.000Z")
         let dateSecond = dateFormatter.date(from: "2007-03-21T01:10:00.000Z")
         sut.launches = [
             Launch(success: true, rocket: "nsdf8934ugfh", name: "Name1", dateUtc: dateFirst!),
