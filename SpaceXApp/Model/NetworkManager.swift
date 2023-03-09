@@ -1,5 +1,9 @@
 import Foundation
 
+protocol NetworkManagerProtocol {
+    func getLaunches(completionHandler: @escaping (Result<[Launch], Error>) -> Void)
+}
+
 final class NetworkManager {
     private let rocketDecoder = JSONDecoder()
     private let launchDecoder = JSONDecoder()
@@ -17,14 +21,14 @@ final class NetworkManager {
     }
     
     enum Errors: Error {
-        case invalidURL
+        case invalidUrl
     }
     
     private func getData<T: Decodable>(url: String, decoder: JSONDecoder, completionHandler: @escaping (Result<T, Error>) -> Void) {
         let session = URLSession(configuration: .default)
         
         guard let request = URL(string: url) else {
-            completionHandler(.failure(Errors.invalidURL))
+            completionHandler(.failure(Errors.invalidUrl))
             return
         }
         
@@ -44,12 +48,14 @@ final class NetworkManager {
             }
         }.resume()
     }
-    
-    func getRockets(_ url: String, completionHandler: @escaping (Result<[Rocket], Error>) -> Void) {
+}
+
+extension NetworkManager: NetworkManagerProtocol {
+    func getRockets(completionHandler: @escaping (Result<[Rocket], Error>) -> Void) {
         getData(url: NetworkUrl.rockets, decoder: rocketDecoder, completionHandler: completionHandler)
     }
     
-    func getLaunches(_ url: String, completionHandler: @escaping (Result<[Launch], Error>) -> Void) {
+    func getLaunches(completionHandler: @escaping (Result<[Launch], Error>) -> Void) {
         getData(url: NetworkUrl.launches, decoder: launchDecoder, completionHandler: completionHandler)
     }
 }

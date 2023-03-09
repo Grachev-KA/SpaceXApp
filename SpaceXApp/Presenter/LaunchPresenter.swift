@@ -10,13 +10,14 @@ protocol LaunchPresenterProtocol: AnyObject {
 
 final class LaunchPresenter {
     weak var view: LaunchViewProtocol?
-    private let networkManager = NetworkManager()
+    private let networkManager: NetworkManagerProtocol
     private let dateFormatter = DateFormatter()
     private let rocketId: String
     
-    init(rocketId: String) {
+    init(rocketId: String, networkManager: NetworkManagerProtocol = NetworkManager()) {
         self.rocketId = rocketId
         dateFormatter.dateFormat = "dd MMMM yyyy"
+        self.networkManager = networkManager
     }
 }
 
@@ -24,7 +25,7 @@ final class LaunchPresenter {
 
 extension LaunchPresenter: LaunchPresenterProtocol {
     func getLaunches() {
-        networkManager.getLaunches(NetworkUrl.launches) { result in
+        networkManager.getLaunches { result in
             switch result {
             case let .success(launches):
                 let launchesCells = launches.filter { $0.rocket == self.rocketId }
