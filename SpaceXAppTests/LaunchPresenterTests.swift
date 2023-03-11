@@ -1,51 +1,51 @@
 import XCTest
 @testable import SpaceXApp
 
+//MARK: - LaunchPresenterTests
+
 final class LaunchPresenterTests: XCTestCase {
-    var sut: NetworkManagerMock!
-    var presenterMock: LaunchPresenter!
-    var launchViewMock: LaunchViewMock!
-    var dateFormatter: DateFormatter!
+    private var sut: LaunchPresenter!
+    private var networkManagerMock: NetworkManagerMock!
+    private var launchViewMock: LaunchViewMock!
     
     override func setUp() {
         super.setUp()
-        sut = NetworkManagerMock()
-        presenterMock = LaunchPresenter(rocketId: "nsdf8934ugfh", networkManager: sut)
+        sut = LaunchPresenter(rocketId: "nsdf8934ugfh", networkManager: networkManagerMock)
         launchViewMock = LaunchViewMock()
-        dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        
-        presenterMock.view = launchViewMock
+        sut.view = launchViewMock
+        networkManagerMock = NetworkManagerMock()
     }
     
     override func tearDown() {
         sut = nil
-        presenterMock = nil
         launchViewMock = nil
-        dateFormatter = nil
+        networkManagerMock = nil
         super.tearDown()
     }
     
-    func testLaunches() {
-        let dateFirst = dateFormatter.date(from: "2006-03-23T22:30:00.000Z")
-        let dateSecond = dateFormatter.date(from: "2007-03-21T01:10:00.000Z")
-        sut.launches = [
+    private func testGetLaunchesSuccessPath() {
+        let calendar = Calendar.current
+        let dateComponentsFirst = DateComponents(year: 2006, month: 3, day: 23, hour: 22, minute: 30, second: 0)
+        let dateFirst = calendar.date(from: dateComponentsFirst)
+        let dateComponentsSecond = DateComponents(year: 2007, month: 3, day: 21, hour: 1, minute: 10, second: 0)
+        let dateSecond = calendar.date(from: dateComponentsSecond)
+        networkManagerMock.launches = [
             Launch(success: true, rocket: "nsdf8934ugfh", name: "Name1", dateUtc: dateFirst!),
             Launch(success: false, rocket: "nsdf8934ugfh", name: "Name2", dateUtc: dateSecond!)
         ]
         
-        presenterMock.getLaunches()
+        sut.getLaunches()
         
         let actualLaunchesCells = launchViewMock.launchesCells
         let expectedLaunchesCells = [
-            LaunchCell(name: "Name1", dateUtc: "24 марта 2006", image: "launchOk"),
+            LaunchCell(name: "Name1", dateUtc: "23 марта 2006", image: "launchOk"),
             LaunchCell(name: "Name2", dateUtc: "21 марта 2007", image: "launchFail")
         ]
         XCTAssertEqual(actualLaunchesCells!, expectedLaunchesCells)
     }
 }
 
-extension LaunchPresenterTests {
+private extension LaunchPresenterTests {
     final class NetworkManagerMock: NetworkManagerProtocol {
         var launches: [Launch]?
         
@@ -53,14 +53,14 @@ extension LaunchPresenterTests {
             completionHandler(.success(launches!))
         }
     }
-}
 
-extension LaunchPresenterTests {
     final class LaunchViewMock: LaunchViewProtocol {
         var launchesCells: [LaunchCell]?
+        var error = ""
         
-        func present(launchesCells: [LaunchCell]) {
+        func present(launchesCells: [LaunchCell], error: String) {
             self.launchesCells = launchesCells
+            self.error = error
         }
     }
 }

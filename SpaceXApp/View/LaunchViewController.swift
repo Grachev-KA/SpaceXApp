@@ -32,6 +32,14 @@ final class LaunchViewController: UIViewController {
         setLayout()
     }
     
+    private func getLaunchesErrorAlert(error: String) {
+        let alert = UIAlertController(title: "Network error", message: error, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(defaultAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
     private func setViews() {
         view.addSubview(tableView)
     }
@@ -74,10 +82,13 @@ extension LaunchViewController: UITableViewDelegate {
 //MARK: - LaunchViewProtocol
 
 extension LaunchViewController: LaunchViewProtocol {
-    func present(launchesCells: [LaunchCell]) {
+    func present(launchesCells: [LaunchCell], error: String) {
         self.launchesCells = launchesCells
         DispatchQueue.main.async {
             self.tableView.reloadData()
+            if launchesCells == [] {
+                self.getLaunchesErrorAlert(error: error)
+            }
         }
     }
 }

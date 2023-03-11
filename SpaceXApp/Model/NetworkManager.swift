@@ -36,7 +36,6 @@ final class NetworkManager {
             guard let data = data else { return }
             do {
                 let data = try decoder.decode(T.self, from: data)
-                print(data)
                 completionHandler(.success(data))
             } catch {
                 completionHandler(.failure(error))
