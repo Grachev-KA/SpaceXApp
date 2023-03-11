@@ -37,7 +37,7 @@ final class LaunchViewController: UIViewController {
         let defaultAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alert.addAction(defaultAction)
         
-        present(alert, animated: true, completion: nil)
+        present(alert, animated: true)
     }
     
     private func setViews() {
@@ -82,13 +82,14 @@ extension LaunchViewController: UITableViewDelegate {
 //MARK: - LaunchViewProtocol
 
 extension LaunchViewController: LaunchViewProtocol {
-    func present(launchesCells: [LaunchCell], error: String) {
+    func present(launchesCells: [LaunchCell]) {
         self.launchesCells = launchesCells
         DispatchQueue.main.async {
             self.tableView.reloadData()
-            if launchesCells == [] {
-                self.getLaunchesErrorAlert(error: error)
-            }
         }
+    }
+    
+    func present(error: String) {
+        getLaunchesErrorAlert(error: error)
     }
 }

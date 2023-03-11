@@ -1,8 +1,6 @@
 import XCTest
 @testable import SpaceXApp
 
-//MARK: - LaunchPresenterTests
-
 final class LaunchPresenterTests: XCTestCase {
     private var sut: LaunchPresenter!
     private var networkManagerMock: NetworkManagerMock!
@@ -41,9 +39,11 @@ final class LaunchPresenterTests: XCTestCase {
             LaunchCell(name: "Name1", dateUtc: "23 марта 2006", image: "launchOk"),
             LaunchCell(name: "Name2", dateUtc: "21 марта 2007", image: "launchFail")
         ]
-        XCTAssertEqual(actualLaunchesCells!, expectedLaunchesCells)
+        XCTAssertEqual(actualLaunchesCells, expectedLaunchesCells)
     }
 }
+
+//MARK: - NetworkManagerProtocol
 
 private extension LaunchPresenterTests {
     final class NetworkManagerMock: NetworkManagerProtocol {
@@ -55,11 +55,14 @@ private extension LaunchPresenterTests {
     }
 
     final class LaunchViewMock: LaunchViewProtocol {
-        var launchesCells: [LaunchCell]?
+        var launchesCells = [LaunchCell]()
         var error = ""
         
-        func present(launchesCells: [LaunchCell], error: String) {
+        func present(launchesCells: [LaunchCell]) {
             self.launchesCells = launchesCells
+        }
+        
+        func present(error: String) {
             self.error = error
         }
     }

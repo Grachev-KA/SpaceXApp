@@ -49,6 +49,8 @@ final class NetworkManager {
     }
 }
 
+//MARK: - NetworkManagerProtocol
+
 extension NetworkManager: NetworkManagerProtocol {
     func getRockets(completionHandler: @escaping (Result<[Rocket], Error>) -> Void) {
         getData(url: NetworkUrl.rockets, decoder: rocketDecoder, completionHandler: completionHandler)

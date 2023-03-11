@@ -1,7 +1,8 @@
 import Foundation
 
 protocol LaunchViewProtocol: AnyObject {
-    func present(launchesCells: [LaunchCell], error: String)
+    func present(launchesCells: [LaunchCell])
+    func present(error: String)
 }
 
 protocol LaunchPresenterProtocol: AnyObject {
@@ -35,10 +36,10 @@ extension LaunchPresenter: LaunchPresenterProtocol {
                         let image = launch.success == true ? "launchOk" : "launchFail"
                         return LaunchCell(name: name, dateUtc: dateUtc, image: image)
                     }
-                self.view?.present(launchesCells: launchesCells, error: "")
+                self.view?.present(launchesCells: launchesCells)
                 
             case let .failure(error):
-                self.view?.present(launchesCells: [], error: error.localizedDescription)
+                self.view?.present(error: error.localizedDescription)
                 
             }
         }
