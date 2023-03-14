@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2AE040D3FD6CADD54CBED08D /* libPods-SpaceXApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13557ECCE3890CF41E46AFC6 /* libPods-SpaceXApp.a */; };
-		7EFA2E93AF764B9CAD4712A1 /* libPods-SpaceXAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FB7B1E608EE5390797CADEF /* libPods-SpaceXAppTests.a */; };
+		B248B5EE2784A130DDF88709 /* libPods-SpaceXApp-SpaceXAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AA7685661AB20EF09B18F1D /* libPods-SpaceXApp-SpaceXAppTests.a */; };
 		CC268D4029AE40D90059FC64 /* RocketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC268D3F29AE40D90059FC64 /* RocketViewController.swift */; };
 		CC268D4229AE40F30059FC64 /* RocketsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC268D4129AE40F30059FC64 /* RocketsPageViewController.swift */; };
 		CC268D4429AE41470059FC64 /* HeaderRocketViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC268D4329AE41470059FC64 /* HeaderRocketViewCell.swift */; };
@@ -53,8 +53,9 @@
 /* Begin PBXFileReference section */
 		13557ECCE3890CF41E46AFC6 /* libPods-SpaceXApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SpaceXApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1361E9418BC4E870C061995D /* Pods-SpaceXAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceXAppTests.release.xcconfig"; path = "Target Support Files/Pods-SpaceXAppTests/Pods-SpaceXAppTests.release.xcconfig"; sourceTree = "<group>"; };
-		5FB7B1E608EE5390797CADEF /* libPods-SpaceXAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SpaceXAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		671487D7DE57CBCDD62187AA /* Pods-SpaceXApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceXApp.release.xcconfig"; path = "Target Support Files/Pods-SpaceXApp/Pods-SpaceXApp.release.xcconfig"; sourceTree = "<group>"; };
+		6A3A1CC49EF6640FC9BD1D93 /* Pods-SpaceXApp-SpaceXAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceXApp-SpaceXAppTests.debug.xcconfig"; path = "Target Support Files/Pods-SpaceXApp-SpaceXAppTests/Pods-SpaceXApp-SpaceXAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6AA7685661AB20EF09B18F1D /* libPods-SpaceXApp-SpaceXAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SpaceXApp-SpaceXAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44CD3E80F54584FD9DD864F /* Pods-SpaceXApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceXApp.debug.xcconfig"; path = "Target Support Files/Pods-SpaceXApp/Pods-SpaceXApp.debug.xcconfig"; sourceTree = "<group>"; };
 		CC268D3F29AE40D90059FC64 /* RocketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketViewController.swift; sourceTree = "<group>"; };
 		CC268D4129AE40F30059FC64 /* RocketsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsPageViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +89,7 @@
 		CCD249E029A543BE004414B8 /* LaunchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCell.swift; sourceTree = "<group>"; };
 		CCD249E229A672F9004414B8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CCD249E629A67324004414B8 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		DBF0A81AA8199527011260BE /* Pods-SpaceXApp-SpaceXAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceXApp-SpaceXAppTests.release.xcconfig"; path = "Target Support Files/Pods-SpaceXApp-SpaceXAppTests/Pods-SpaceXApp-SpaceXAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		F3F5A86A42869096E57A23F0 /* Pods-SpaceXAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceXAppTests.debug.xcconfig"; path = "Target Support Files/Pods-SpaceXAppTests/Pods-SpaceXAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,7 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EFA2E93AF764B9CAD4712A1 /* libPods-SpaceXAppTests.a in Frameworks */,
+				B248B5EE2784A130DDF88709 /* libPods-SpaceXApp-SpaceXAppTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +120,8 @@
 				671487D7DE57CBCDD62187AA /* Pods-SpaceXApp.release.xcconfig */,
 				F3F5A86A42869096E57A23F0 /* Pods-SpaceXAppTests.debug.xcconfig */,
 				1361E9418BC4E870C061995D /* Pods-SpaceXAppTests.release.xcconfig */,
+				6A3A1CC49EF6640FC9BD1D93 /* Pods-SpaceXApp-SpaceXAppTests.debug.xcconfig */,
+				DBF0A81AA8199527011260BE /* Pods-SpaceXApp-SpaceXAppTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -126,7 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				13557ECCE3890CF41E46AFC6 /* libPods-SpaceXApp.a */,
-				5FB7B1E608EE5390797CADEF /* libPods-SpaceXAppTests.a */,
+				6AA7685661AB20EF09B18F1D /* libPods-SpaceXApp-SpaceXAppTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -362,7 +366,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SpaceXAppTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-SpaceXApp-SpaceXAppTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -597,7 +601,7 @@
 		};
 		CC99FD4F29B7C9F500B8902E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F3F5A86A42869096E57A23F0 /* Pods-SpaceXAppTests.debug.xcconfig */;
+			baseConfigurationReference = 6A3A1CC49EF6640FC9BD1D93 /* Pods-SpaceXApp-SpaceXAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -623,7 +627,7 @@
 		};
 		CC99FD5029B7C9F500B8902E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1361E9418BC4E870C061995D /* Pods-SpaceXAppTests.release.xcconfig */;
+			baseConfigurationReference = DBF0A81AA8199527011260BE /* Pods-SpaceXApp-SpaceXAppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;

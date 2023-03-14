@@ -32,8 +32,8 @@ final class LaunchViewController: UIViewController {
         setLayout()
     }
     
-    private func getLaunchesErrorAlert(error: String) {
-        let alert = UIAlertController(title: "Network error", message: error, preferredStyle: .alert)
+    private func getLaunchesErrorAlert(launchesError: String) {
+        let alert = UIAlertController(title: "Network error", message: launchesError, preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alert.addAction(defaultAction)
         
@@ -89,7 +89,7 @@ extension LaunchViewController: LaunchViewProtocol {
         }
     }
     
-    func present(error: String) {
-        getLaunchesErrorAlert(error: error)
+    func present(launchesError: String) {
+        getLaunchesErrorAlert(launchesError: launchesError)
     }
 }

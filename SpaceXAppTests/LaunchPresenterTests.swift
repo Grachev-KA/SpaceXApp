@@ -8,10 +8,10 @@ final class LaunchPresenterTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
+        networkManagerMock = NetworkManagerMock()
         sut = LaunchPresenter(rocketId: "nsdf8934ugfh", networkManager: networkManagerMock)
         launchViewMock = LaunchViewMock()
         sut.view = launchViewMock
-        networkManagerMock = NetworkManagerMock()
     }
     
     override func tearDown() {
@@ -21,17 +21,14 @@ final class LaunchPresenterTests: XCTestCase {
         super.tearDown()
     }
     
-    private func testGetLaunchesSuccessPath() {
-        let calendar = Calendar.current
-        let dateComponentsFirst = DateComponents(year: 2006, month: 3, day: 23, hour: 22, minute: 30, second: 0)
-        let dateFirst = calendar.date(from: dateComponentsFirst)
-        let dateComponentsSecond = DateComponents(year: 2007, month: 3, day: 21, hour: 1, minute: 10, second: 0)
-        let dateSecond = calendar.date(from: dateComponentsSecond)
+    func testGetLaunchesSuccessPath() {
+        let dateFirst = Date(timeIntervalSinceReferenceDate: 164764800.0)
+        let dateSecond = Date(timeIntervalSinceReferenceDate: 196128000.0)
         networkManagerMock.launches = [
-            Launch(success: true, rocket: "nsdf8934ugfh", name: "Name1", dateUtc: dateFirst!),
-            Launch(success: false, rocket: "nsdf8934ugfh", name: "Name2", dateUtc: dateSecond!)
+            Launch(success: true, rocket: "nsdf8934ugfh", name: "Name1", dateUtc: dateFirst),
+            Launch(success: false, rocket: "nsdf8934ugfh", name: "Name2", dateUtc: dateSecond)
         ]
-        
+
         sut.getLaunches()
         
         let actualLaunchesCells = launchViewMock.launchesCells
@@ -41,6 +38,17 @@ final class LaunchPresenterTests: XCTestCase {
         ]
         XCTAssertEqual(actualLaunchesCells, expectedLaunchesCells)
     }
+    
+    func testGetLaunchesErrorPath() {
+        networkManagerMock.launchesError = NSError(domain: "test", code: 0, userInfo: [NSLocalizedDescriptionKey: "Testing error"])
+
+        sut.getLaunches()
+
+        let actualError = launchViewMock.launchesError
+        let expectedError = "Testing error"
+        XCTAssertEqual(actualError, expectedError)
+    }
+
 }
 
 //MARK: - NetworkManagerProtocol
@@ -48,22 +56,27 @@ final class LaunchPresenterTests: XCTestCase {
 private extension LaunchPresenterTests {
     final class NetworkManagerMock: NetworkManagerProtocol {
         var launches: [Launch]?
+        var launchesError: Error?
         
         func getLaunches(completionHandler: @escaping (Result<[Launch], Error>) -> Void) {
-            completionHandler(.success(launches!))
+            if let launches {
+                completionHandler(.success(launches))
+            } else {
+                completionHandler(.failure(launchesError!))
+            }
         }
     }
 
     final class LaunchViewMock: LaunchViewProtocol {
         var launchesCells = [LaunchCell]()
-        var error = ""
+        var launchesError = ""
         
         func present(launchesCells: [LaunchCell]) {
             self.launchesCells = launchesCells
         }
         
-        func present(error: String) {
-            self.error = error
+        func present(launchesError: String) {
+            self.launchesError = launchesError
         }
     }
 }

@@ -2,7 +2,7 @@ import Foundation
 
 protocol LaunchViewProtocol: AnyObject {
     func present(launchesCells: [LaunchCell])
-    func present(error: String)
+    func present(launchesError: String)
 }
 
 protocol LaunchPresenterProtocol: AnyObject {
@@ -38,8 +38,8 @@ extension LaunchPresenter: LaunchPresenterProtocol {
                     }
                 self.view?.present(launchesCells: launchesCells)
                 
-            case let .failure(error):
-                self.view?.present(error: error.localizedDescription)
+            case let .failure(launchesError):
+                self.view?.present(launchesError: launchesError.localizedDescription)
                 
             }
         }

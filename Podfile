@@ -1,6 +1,6 @@
 platform: ios, '13.0'
 use frameworks!
-inhibit_all_warnings!
+Inhibit_all_warnings!
 
 target 'SpaceXApp' do
     pod 'Kingfisher'
