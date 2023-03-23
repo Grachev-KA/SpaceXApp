@@ -48,7 +48,7 @@ final class SettingsPresenterTests: XCTestCase {
     }
     
     func testGetUserSetting() {
-        userSettingsMock.save(setting: .height, value: .pounds)
+        userSettingsMock.getUnit = .pounds
         
         sut.getSettingsModelAndUserSettings()
         
@@ -73,6 +73,7 @@ private extension SettingsPresenterTests {
     final class UserSettingsMock: UserSettingsProtocol {
         var savedSettingType: SettingsModel.SettingsType?
         var savedUnit: SettingsModel.Units?
+        var getUnit: SettingsModel.Units?
         
         func save(setting: SettingsModel.SettingsType, value: SettingsModel.Units) {
             savedSettingType = setting
@@ -80,7 +81,7 @@ private extension SettingsPresenterTests {
         }
         
         func get(setting: SettingsModel.SettingsType) -> SettingsModel.Units? {
-            savedUnit
+            getUnit
         }
     }
     
