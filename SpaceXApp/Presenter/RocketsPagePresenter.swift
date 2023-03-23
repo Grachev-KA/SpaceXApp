@@ -27,7 +27,7 @@ extension RocketsPagePresenter: RocketsPagePresenterProtocol {
                 self.view?.present(rockets: rockets)
                 
             case let .failure(error):
-                print(error)
+                print(error) //исправить на Аллерт
             }
         }
     }

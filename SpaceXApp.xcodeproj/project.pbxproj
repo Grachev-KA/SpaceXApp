@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2AE040D3FD6CADD54CBED08D /* libPods-SpaceXApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13557ECCE3890CF41E46AFC6 /* libPods-SpaceXApp.a */; };
 		B248B5EE2784A130DDF88709 /* libPods-SpaceXApp-SpaceXAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AA7685661AB20EF09B18F1D /* libPods-SpaceXApp-SpaceXAppTests.a */; };
+		CC1FAB2E29C22A5500FF8999 /* SettingsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1FAB2D29C22A5500FF8999 /* SettingsPresenterTests.swift */; };
 		CC268D4029AE40D90059FC64 /* RocketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC268D3F29AE40D90059FC64 /* RocketViewController.swift */; };
 		CC268D4229AE40F30059FC64 /* RocketsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC268D4129AE40F30059FC64 /* RocketsPageViewController.swift */; };
 		CC268D4429AE41470059FC64 /* HeaderRocketViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC268D4329AE41470059FC64 /* HeaderRocketViewCell.swift */; };
@@ -57,6 +58,7 @@
 		6A3A1CC49EF6640FC9BD1D93 /* Pods-SpaceXApp-SpaceXAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceXApp-SpaceXAppTests.debug.xcconfig"; path = "Target Support Files/Pods-SpaceXApp-SpaceXAppTests/Pods-SpaceXApp-SpaceXAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6AA7685661AB20EF09B18F1D /* libPods-SpaceXApp-SpaceXAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SpaceXApp-SpaceXAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44CD3E80F54584FD9DD864F /* Pods-SpaceXApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceXApp.debug.xcconfig"; path = "Target Support Files/Pods-SpaceXApp/Pods-SpaceXApp.debug.xcconfig"; sourceTree = "<group>"; };
+		CC1FAB2D29C22A5500FF8999 /* SettingsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenterTests.swift; sourceTree = "<group>"; };
 		CC268D3F29AE40D90059FC64 /* RocketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketViewController.swift; sourceTree = "<group>"; };
 		CC268D4129AE40F30059FC64 /* RocketsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsPageViewController.swift; sourceTree = "<group>"; };
 		CC268D4329AE41470059FC64 /* HeaderRocketViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderRocketViewCell.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				CC99FD5129B7CC3000B8902E /* LaunchPresenterTests.swift */,
+				CC1FAB2D29C22A5500FF8999 /* SettingsPresenterTests.swift */,
 			);
 			path = SpaceXAppTests;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC99FD5229B7CC3000B8902E /* LaunchPresenterTests.swift in Sources */,
+				CC1FAB2E29C22A5500FF8999 /* SettingsPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

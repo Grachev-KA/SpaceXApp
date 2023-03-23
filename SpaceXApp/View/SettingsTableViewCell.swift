@@ -46,9 +46,8 @@ final class SettingsTableViewCell: UITableViewCell {
             segmentedControl.insertSegment(withTitle: unit.rawValue, at: 1, animated: false)
         }
         
-        if let selectedUnit = selectedUnit {
-            segmentedControl.selectedSegmentIndex = setting.units.firstIndex(of: selectedUnit) ?? 0
-        }
+        let selectedUnit = selectedUnit ?? setting.selectedUnit
+        segmentedControl.selectedSegmentIndex = setting.units.firstIndex(of: selectedUnit) ?? 0
     }
     
     override func prepareForReuse() {
