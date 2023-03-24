@@ -24,27 +24,23 @@ final class SettingsPresenterTests: XCTestCase {
     }
     
     func testGetAvailableSettings() {
-        sut.getSettingsModelAndUserSettings()
-        
-        let actualAvailableSettings = settingsViewMock.availableSettings
-        let expectedAvailableSettings = [
+        settingsModelMock.settings = [
             SettingsModel(type: .height, units: [.meters, .feet], selectedUnit: .meters),
             SettingsModel(type: .diameter, units: [.meters, .feet], selectedUnit: .meters),
             SettingsModel(type: .weight, units: [.kilograms, .pounds], selectedUnit: .kilograms),
             SettingsModel(type: .payload, units: [.kilograms, .pounds], selectedUnit: .kilograms)
         ]
-        XCTAssertEqual(actualAvailableSettings, expectedAvailableSettings)
+        
+        sut.getSettingsModelAndUserSettings()
+
+        XCTAssertEqual(settingsViewMock.availableSettings, settingsModelMock.settings!)
     }
     
     func testSetSelectedUnit() {
         sut.saveUserSettings(setting: SettingsModel(type: .height, units: [.meters, .feet], selectedUnit: .pounds), unit: .pounds)
         
-        let actualSetting = userSettingsMock.savedSettingType
-        let expectedSettingType = SettingsModel.SettingsType.height
-        let actualUnit = userSettingsMock.savedUnit
-        let expectedUnit = SettingsModel.Units.pounds
-        XCTAssertEqual(actualSetting, expectedSettingType)
-        XCTAssertEqual(actualUnit, expectedUnit)
+        XCTAssertEqual(userSettingsMock.savedSettingType, .height)
+        XCTAssertEqual(userSettingsMock.savedUnit, .pounds)
     }
     
     func testGetUserSetting() {
@@ -52,21 +48,19 @@ final class SettingsPresenterTests: XCTestCase {
         
         sut.getSettingsModelAndUserSettings()
         
-        let actualSelectedUnit = settingsViewMock.selectedUnits
-        let expectedSelectedUnit = SettingsModel.Units.pounds
-        XCTAssertEqual(actualSelectedUnit[0], expectedSelectedUnit)
+        XCTAssertEqual(settingsViewMock.selectedUnits[0], SettingsModel.Units.pounds)
     }
 }
 
+//MARK: - SettingsPresenter Mocks
+
 private extension SettingsPresenterTests {
     final class SettingsModelMock: SettingsModelProtocol {
+        var settings: [SettingsModel]?
+        
         static func availableSettings() -> [SettingsModel] {
-            [
-                SettingsModel(type: .height, units: [.meters, .feet], selectedUnit: .meters),
-                SettingsModel(type: .diameter, units: [.meters, .feet], selectedUnit: .meters),
-                SettingsModel(type: .weight, units: [.kilograms, .pounds], selectedUnit: .kilograms),
-                SettingsModel(type: .payload, units: [.kilograms, .pounds], selectedUnit: .kilograms)
-            ]
+            let mock = SettingsModelMock()
+            return mock.settings!
         }
     }
     

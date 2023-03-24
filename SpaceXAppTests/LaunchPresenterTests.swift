@@ -51,7 +51,7 @@ final class LaunchPresenterTests: XCTestCase {
 
 }
 
-//MARK: - NetworkManagerProtocol
+//MARK: - LaunchPresenter Mocks
 
 private extension LaunchPresenterTests {
     final class NetworkManagerMock: NetworkManagerProtocol {
