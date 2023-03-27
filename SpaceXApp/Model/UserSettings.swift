@@ -1,6 +1,11 @@
 import Foundation
 
-final class UserSettings {
+protocol UserSettingsProtocol {
+    func save(setting: SettingsModel.SettingsType, value: SettingsModel.Units)
+    func get(setting: SettingsModel.SettingsType) -> SettingsModel.Units?
+}
+
+final class UserSettings: UserSettingsProtocol {
     let userDefaults = UserDefaults.standard
     
     func save(setting: SettingsModel.SettingsType, value: SettingsModel.Units) {

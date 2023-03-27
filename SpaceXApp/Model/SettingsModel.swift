@@ -1,4 +1,8 @@
-struct SettingsModel {
+protocol SettingsModelProtocol {
+    static func availableSettings() -> [SettingsModel]
+}
+
+struct SettingsModel: Equatable {
     let type: SettingsType
     let units: [Units]
     let selectedUnit: Units

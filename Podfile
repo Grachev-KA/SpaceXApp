@@ -1,5 +1,11 @@
-target 'SpaceXApp (MVP)' do
+platform: ios, '13.0'
+use frameworks!
+Inhibit_all_warnings!
 
-pod 'Kingfisher'
+target 'SpaceXApp' do
+    pod 'Kingfisher'
 
+    target 'SpaceXAppTests' do
+        inherit! : search_paths
+    end
 end

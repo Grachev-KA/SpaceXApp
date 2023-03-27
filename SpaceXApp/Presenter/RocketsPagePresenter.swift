@@ -21,13 +21,13 @@ final class RocketsPagePresenter {
 
 extension RocketsPagePresenter: RocketsPagePresenterProtocol {
     func getRockets() {
-        networkManager.getRockets(NetworkUrl.rockets) { result in
+        networkManager.getRockets { result in
             switch result {
             case let .success(rockets):
                 self.view?.present(rockets: rockets)
                 
             case let .failure(error):
-                print(error)
+                print(error) //исправить на Аллерт
             }
         }
     }
