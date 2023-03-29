@@ -24,7 +24,7 @@ final class SettingsPresenterTests: XCTestCase {
     }
     
     func testGetAvailableSettings() {
-        settingsModelMock.settings = [
+        SettingsModelMock.settings = [
             SettingsModel(type: .height, units: [.meters, .feet], selectedUnit: .meters),
             SettingsModel(type: .diameter, units: [.meters, .feet], selectedUnit: .meters),
             SettingsModel(type: .weight, units: [.kilograms, .pounds], selectedUnit: .kilograms),
@@ -33,7 +33,7 @@ final class SettingsPresenterTests: XCTestCase {
         
         sut.getSettingsModelAndUserSettings()
 
-        XCTAssertEqual(settingsViewMock.availableSettings, settingsModelMock.settings!)
+        XCTAssertEqual(settingsViewMock.availableSettings, SettingsModelMock.settings!)
     }
     
     func testSetSelectedUnit() {
@@ -56,11 +56,11 @@ final class SettingsPresenterTests: XCTestCase {
 
 private extension SettingsPresenterTests {
     final class SettingsModelMock: SettingsModelProtocol {
-        var settings: [SettingsModel]?
+        static var settings: [SettingsModel]? 
         
         static func availableSettings() -> [SettingsModel] {
-            let mock = SettingsModelMock()
-            return mock.settings!
+            settings = SettingsModelMock.settings
+            return settings!
         }
     }
     

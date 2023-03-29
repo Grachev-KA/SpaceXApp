@@ -1,6 +1,6 @@
 import Foundation
 
-struct Rocket: Decodable {
+struct Rocket: Decodable, Equatable {
     let height: Diameter
     let diameter: Diameter
     let mass: Mass
@@ -15,57 +15,27 @@ struct Rocket: Decodable {
 }
 
 extension Rocket {
-    struct Diameter: Decodable {
-        let meters: Double?
+    struct Diameter: Decodable, Equatable {
         let feet: Double?
     }
-}
-
-extension Rocket {
-    struct Thrust: Decodable {
-        let kN: Int
-        let lbf: Int
-    }
-}
-
-extension Rocket {
-    struct FirstStage: Decodable {
-        let thrustSeaLevel: Thrust
-        let thrustVacuum: Thrust
-        let reusable: Bool
-        let engines: Int
-        let fuelAmountTons: Double
-        let burnTimeSec: Int?
-    }
-}
-
-extension Rocket {
-    struct Mass: Decodable {
-        let kg: Int
+    
+    struct Mass: Decodable, Equatable {
         let lb: Int
     }
-}
 
-extension Rocket {
-    struct SecondStage: Decodable {
-        let thrust: Thrust
-        let payloads: Payloads
-        let reusable: Bool
+    struct FirstStage: Decodable, Equatable {
         let engines: Int
         let fuelAmountTons: Double
         let burnTimeSec: Int?
     }
-}
 
-extension Rocket {
-    struct Payloads: Decodable {
-        let compositeFairing: CompositeFairing
-        let option1: String
+    struct SecondStage: Decodable, Equatable {
+        let engines: Int
+        let fuelAmountTons: Double
+        let burnTimeSec: Int?
     }
-}
 
-extension Rocket {
-    struct CompositeFairing: Decodable {
+    struct CompositeFairing: Decodable, Equatable {
         let height: Diameter
         let diameter: Diameter
     }

@@ -2,6 +2,7 @@ import Foundation
 
 protocol RocketsPageViewProtocol: AnyObject {
     func present(rockets: [Rocket])
+    func present(rocketsError: String)
 }
 
 protocol RocketsPagePresenterProtocol: AnyObject {
@@ -10,10 +11,11 @@ protocol RocketsPagePresenterProtocol: AnyObject {
 
 final class RocketsPagePresenter {
     weak var view: RocketsPageViewProtocol?
-    private let networkManager = NetworkManager()
+    private let networkManager: NetworkManagerRocketsProtocol
     
-    init(view: RocketsPageViewProtocol) {
+    init(view: RocketsPageViewProtocol, networkManager: NetworkManagerRocketsProtocol = NetworkManager()) {
         self.view = view
+        self.networkManager = networkManager
     }
 }
 
@@ -26,8 +28,8 @@ extension RocketsPagePresenter: RocketsPagePresenterProtocol {
             case let .success(rockets):
                 self.view?.present(rockets: rockets)
                 
-            case let .failure(error):
-                print(error) //исправить на Аллерт
+            case let .failure(rocketsError):
+                self.view?.present(rocketsError: rocketsError.localizedDescription)
             }
         }
     }

@@ -39,6 +39,7 @@
 		CCD249E129A543BE004414B8 /* LaunchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD249E029A543BE004414B8 /* LaunchCell.swift */; };
 		CCD249E329A672F9004414B8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD249E229A672F9004414B8 /* SettingsViewController.swift */; };
 		CCD249E729A67324004414B8 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD249E629A67324004414B8 /* SettingsTableViewCell.swift */; };
+		CCDBA66229D207BD0038A8BD /* RocketsPagePresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDBA66129D207BD0038A8BD /* RocketsPagePresenterTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		CCD249E029A543BE004414B8 /* LaunchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCell.swift; sourceTree = "<group>"; };
 		CCD249E229A672F9004414B8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CCD249E629A67324004414B8 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		CCDBA66129D207BD0038A8BD /* RocketsPagePresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsPagePresenterTest.swift; sourceTree = "<group>"; };
 		DBF0A81AA8199527011260BE /* Pods-SpaceXApp-SpaceXAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceXApp-SpaceXAppTests.release.xcconfig"; path = "Target Support Files/Pods-SpaceXApp-SpaceXAppTests/Pods-SpaceXApp-SpaceXAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		F3F5A86A42869096E57A23F0 /* Pods-SpaceXAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceXAppTests.debug.xcconfig"; path = "Target Support Files/Pods-SpaceXAppTests/Pods-SpaceXAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -228,6 +230,7 @@
 		CC99FD4929B7C9F500B8902E /* SpaceXAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				CCDBA66129D207BD0038A8BD /* RocketsPagePresenterTest.swift */,
 				CC99FD5129B7CC3000B8902E /* LaunchPresenterTests.swift */,
 				CC1FAB2D29C22A5500FF8999 /* SettingsPresenterTests.swift */,
 			);
@@ -418,6 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC99FD5229B7CC3000B8902E /* LaunchPresenterTests.swift in Sources */,
+				CCDBA66229D207BD0038A8BD /* RocketsPagePresenterTest.swift in Sources */,
 				CC1FAB2E29C22A5500FF8999 /* SettingsPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
