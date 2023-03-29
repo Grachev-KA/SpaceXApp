@@ -80,10 +80,8 @@ final class RocketsPagePresenterTest: XCTestCase {
         networkManagerMock.rocketsError = NSError(domain: "test", code: 0, userInfo: [NSLocalizedDescriptionKey: "Rockets testing error"])
         
         sut.getRockets()
-        
-        let actualError = rocketsPageViewMock.rocketsError
-        let expectedError = "Rockets testing error"
-        XCTAssertEqual(actualError, expectedError)
+
+        XCTAssertEqual(rocketsPageViewMock.rocketsError, "Rockets testing error")
     }
 }
 

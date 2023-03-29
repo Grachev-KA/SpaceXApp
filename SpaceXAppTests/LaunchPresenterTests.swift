@@ -48,9 +48,7 @@ final class LaunchPresenterTests: XCTestCase {
 
         sut.getLaunches()
 
-        let actualError = launchViewMock.launchesError
-        let expectedError = "Launches testing error"
-        XCTAssertEqual(actualError, expectedError)
+        XCTAssertEqual(launchViewMock.launchesError, "Launches testing error")
     }
 
 }
