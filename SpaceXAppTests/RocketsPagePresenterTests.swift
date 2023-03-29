@@ -1,7 +1,7 @@
 import XCTest
 @testable import SpaceXApp
 
-final class RocketsPagePresenterTest: XCTestCase {
+final class RocketsPagePresenterTests: XCTestCase {
     private var sut: RocketsPagePresenter!
     private var networkManagerMock: NetworkManagerMock!
     private var rocketsPageViewMock: RocketsPageViewMock!
@@ -87,7 +87,7 @@ final class RocketsPagePresenterTest: XCTestCase {
 
 //MARK: - RocketsPagePresenter Mocks
 
-private extension RocketsPagePresenterTest {
+private extension RocketsPagePresenterTests {
     final class NetworkManagerMock: NetworkManagerRocketsProtocol {
         var rockets: [Rocket]?
         var rocketsError: Error?
