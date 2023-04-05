@@ -1,6 +1,6 @@
 import Foundation
 
-struct Section {
+struct Section: Equatable {
     let type: SectionType
     let cells: [CellType]
 }
