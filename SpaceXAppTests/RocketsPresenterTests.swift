@@ -79,8 +79,7 @@ final class RocketPresenterTests: XCTestCase {
     func testGetSections() {
         sut.getSections()
         
-        let actualSections = rocketViewMock.makeCells(rocket: rocketStub)
-        XCTAssertEqual(actualSections, sectionsStub)
+        XCTAssertEqual(rocketViewMock.sections!, sectionsStub)
         XCTAssertEqual(rocketViewMock.rocketId!, "id")
     }
 }
