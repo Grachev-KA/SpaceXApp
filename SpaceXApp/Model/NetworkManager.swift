@@ -1,10 +1,7 @@
 import Foundation
 
-protocol NetworkManagerLaunchesProtocol {
+protocol NetworkManagerProtocol {
     func getLaunches(completionHandler: @escaping (Result<[Launch], Error>) -> Void)
-}
-
-protocol NetworkManagerRocketsProtocol {
     func getRockets(completionHandler: @escaping (Result<[Rocket], Error>) -> Void)
 }
 
@@ -53,17 +50,13 @@ final class NetworkManager {
     }
 }
 
-//MARK: - NetworkManagerLaunchesProtocol
+//MARK: - NetworkManagerProtocol
 
-extension NetworkManager: NetworkManagerLaunchesProtocol {
+extension NetworkManager: NetworkManagerProtocol {
     func getRockets(completionHandler: @escaping (Result<[Rocket], Error>) -> Void) {
         getData(url: NetworkUrl.rockets, decoder: rocketDecoder, completionHandler: completionHandler)
     }
-}
-
-//MARK: - NetworkManagerRocketsProtocol
-
-extension NetworkManager: NetworkManagerRocketsProtocol {
+    
     func getLaunches(completionHandler: @escaping (Result<[Launch], Error>) -> Void) {
         getData(url: NetworkUrl.launches, decoder: launchDecoder, completionHandler: completionHandler)
     }

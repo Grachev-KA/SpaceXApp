@@ -11,9 +11,9 @@ protocol RocketsPagePresenterProtocol: AnyObject {
 
 final class RocketsPagePresenter {
     weak var view: RocketsPageViewProtocol?
-    private let networkManager: NetworkManagerRocketsProtocol
+    private let networkManager: NetworkManagerProtocol
     
-    init(view: RocketsPageViewProtocol, networkManager: NetworkManagerRocketsProtocol = NetworkManager()) {
+    init(view: RocketsPageViewProtocol, networkManager: NetworkManagerProtocol = NetworkManager()) {
         self.view = view
         self.networkManager = networkManager
     }

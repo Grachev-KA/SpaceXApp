@@ -11,11 +11,11 @@ protocol LaunchPresenterProtocol: AnyObject {
 
 final class LaunchPresenter {
     weak var view: LaunchViewProtocol?
-    private let networkManager: NetworkManagerLaunchesProtocol
+    private let networkManager: NetworkManagerProtocol
     private let dateFormatter = DateFormatter()
     private let rocketId: String
     
-    init(rocketId: String, networkManager: NetworkManagerLaunchesProtocol = NetworkManager()) {
+    init(rocketId: String, networkManager: NetworkManagerProtocol = NetworkManager()) {
         self.rocketId = rocketId
         dateFormatter.dateFormat = "dd MMMM yyyy"
         self.networkManager = networkManager

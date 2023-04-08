@@ -37,7 +37,8 @@ final class SettingsPresenterTests: XCTestCase {
     }
     
     func testSetSelectedUnit() {
-        sut.saveUserSettings(setting: SettingsModel(type: .height, units: [.meters, .feet], selectedUnit: .pounds), unit: .pounds)
+        sut.saveUserSettings(setting: SettingsModel(type: .height, units: [.meters, .feet], selectedUnit: .pounds),
+                             unit: .pounds)
         
         XCTAssertEqual(userSettingsMock.savedSettingType, .height)
         XCTAssertEqual(userSettingsMock.savedUnit, .pounds)
@@ -59,8 +60,7 @@ private extension SettingsPresenterTests {
         static var settings: [SettingsModel]? 
         
         static func availableSettings() -> [SettingsModel] {
-            settings = SettingsModelMock.settings
-            return settings!
+            settings!
         }
     }
     

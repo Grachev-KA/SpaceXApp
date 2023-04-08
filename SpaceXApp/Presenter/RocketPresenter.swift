@@ -5,7 +5,6 @@ protocol RocketViewProtocol: AnyObject {
 }
 
 protocol RocketPresenterProtocol: AnyObject {
-    func makeCells(rocket: Rocket) -> [Section]
     func getSections()
 }
 
@@ -19,7 +18,7 @@ final class RocketPresenter {
         dateFormatter.dateFormat = "dd MMMM yyyy"
     }
     
-    func makeCells(rocket: Rocket) -> [Section] {
+    private func makeCells(rocket: Rocket) -> [Section] {
         var sections = [Section]()
         let firstFlightString = dateFormatter.string(from: rocket.firstFlight)
         

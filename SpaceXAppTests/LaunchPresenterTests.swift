@@ -53,25 +53,12 @@ final class LaunchPresenterTests: XCTestCase {
 
 }
 
-//MARK: - LaunchPresenter Mocks
+//MARK: - LaunchPresenter Mock
 
 private extension LaunchPresenterTests {
-    final class NetworkManagerMock: NetworkManagerLaunchesProtocol {
-        var launches: [Launch]?
-        var launchesError: Error?
-        
-        func getLaunches(completionHandler: @escaping (Result<[Launch], Error>) -> Void) {
-            if let launches {
-                completionHandler(.success(launches))
-            } else {
-                completionHandler(.failure(launchesError!))
-            }
-        }
-    }
-
     final class LaunchViewMock: LaunchViewProtocol {
         var launchesCells = [LaunchCell]()
-        var launchesError = ""
+        var launchesError: String?
         
         func present(launchesCells: [LaunchCell]) {
             self.launchesCells = launchesCells

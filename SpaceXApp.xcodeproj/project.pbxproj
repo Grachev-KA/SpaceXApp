@@ -41,6 +41,7 @@
 		CCD249E329A672F9004414B8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD249E229A672F9004414B8 /* SettingsViewController.swift */; };
 		CCD249E729A67324004414B8 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD249E629A67324004414B8 /* SettingsTableViewCell.swift */; };
 		CCDBA66229D207BD0038A8BD /* RocketsPagePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDBA66129D207BD0038A8BD /* RocketsPagePresenterTests.swift */; };
+		CCF4A76D29DF407C00EDE976 /* NetworkManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF4A76C29DF407C00EDE976 /* NetworkManagerMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		CCD249E229A672F9004414B8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CCD249E629A67324004414B8 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		CCDBA66129D207BD0038A8BD /* RocketsPagePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsPagePresenterTests.swift; sourceTree = "<group>"; };
+		CCF4A76C29DF407C00EDE976 /* NetworkManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerMock.swift; sourceTree = "<group>"; };
 		DBF0A81AA8199527011260BE /* Pods-SpaceXApp-SpaceXAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceXApp-SpaceXAppTests.release.xcconfig"; path = "Target Support Files/Pods-SpaceXApp-SpaceXAppTests/Pods-SpaceXApp-SpaceXAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		F3F5A86A42869096E57A23F0 /* Pods-SpaceXAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceXAppTests.debug.xcconfig"; path = "Target Support Files/Pods-SpaceXAppTests/Pods-SpaceXAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -164,6 +166,7 @@
 		CC893CE5299E49290052387C /* SpaceXApp */ = {
 			isa = PBXGroup;
 			children = (
+				CCF4A76529DF3BB400EDE976 /* Mocks */,
 				CC893CFC299E4B200052387C /* Model */,
 				CC893CFB299E4B1C0052387C /* View */,
 				CC893CFA299E4B170052387C /* Presenter */,
@@ -238,6 +241,14 @@
 				CC1FAB2D29C22A5500FF8999 /* SettingsPresenterTests.swift */,
 			);
 			path = SpaceXAppTests;
+			sourceTree = "<group>";
+		};
+		CCF4A76529DF3BB400EDE976 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				CCF4A76C29DF407C00EDE976 /* NetworkManagerMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -434,6 +445,7 @@
 				CCD249E129A543BE004414B8 /* LaunchCell.swift in Sources */,
 				CC268D4829AE419E0059FC64 /* InfoVerticalRocketViewCell.swift in Sources */,
 				CC893CE9299E49290052387C /* SceneDelegate.swift in Sources */,
+				CCF4A76D29DF407C00EDE976 /* NetworkManagerMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
