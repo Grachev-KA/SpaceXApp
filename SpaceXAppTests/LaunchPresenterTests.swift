@@ -22,11 +22,15 @@ final class LaunchPresenterTests: XCTestCase {
     }
     
     func testGetLaunchesSuccessPath() {
-        let dateFirst = Date(timeIntervalSinceReferenceDate: 164764800.0)
-        let dateSecond = Date(timeIntervalSinceReferenceDate: 196128000.0)
         networkManagerMock.launches = [
-            Launch(success: true, rocket: "nsdf8934ugfh", name: "Name1", dateUtc: dateFirst),
-            Launch(success: false, rocket: "nsdf8934ugfh", name: "Name2", dateUtc: dateSecond)
+            Launch(success: true,
+                   rocket: "nsdf8934ugfh",
+                   name: "Name1",
+                   dateUtc: .init(timeIntervalSinceReferenceDate: 164764800.0)),
+            Launch(success: false,
+                   rocket: "nsdf8934ugfh",
+                   name: "Name2",
+                   dateUtc: .init(timeIntervalSinceReferenceDate: 196128000.0))
         ]
 
         sut.getLaunches()
@@ -40,36 +44,21 @@ final class LaunchPresenterTests: XCTestCase {
     }
     
     func testGetLaunchesErrorPath() {
-        networkManagerMock.launchesError = NSError(domain: "test", code: 0, userInfo: [NSLocalizedDescriptionKey: "Testing error"])
+        networkManagerMock.launchesError = NSError(domain: "test", code: 0, userInfo: [NSLocalizedDescriptionKey: "Launches testing error"])
 
         sut.getLaunches()
 
-        let actualError = launchViewMock.launchesError
-        let expectedError = "Testing error"
-        XCTAssertEqual(actualError, expectedError)
+        XCTAssertEqual(launchViewMock.launchesError, "Launches testing error")
     }
 
 }
 
-//MARK: - LaunchPresenter Mocks
+//MARK: - LaunchPresenter Mock
 
 private extension LaunchPresenterTests {
-    final class NetworkManagerMock: NetworkManagerProtocol {
-        var launches: [Launch]?
-        var launchesError: Error?
-        
-        func getLaunches(completionHandler: @escaping (Result<[Launch], Error>) -> Void) {
-            if let launches {
-                completionHandler(.success(launches))
-            } else {
-                completionHandler(.failure(launchesError!))
-            }
-        }
-    }
-
     final class LaunchViewMock: LaunchViewProtocol {
         var launchesCells = [LaunchCell]()
-        var launchesError = ""
+        var launchesError: String?
         
         func present(launchesCells: [LaunchCell]) {
             self.launchesCells = launchesCells

@@ -23,6 +23,14 @@ final class RocketsPageViewController: UIPageViewController {
             self.setViewControllers([self.rocketViewController[0]], direction: .forward, animated: true)
         }
     }
+    
+    private func showRocketsErrorAlert(rocketsError: String) {
+        let alert = UIAlertController(title: "Network error", message: rocketsError, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(defaultAction)
+        
+        present(alert, animated: true)
+    }
 }
 
 // MARK: - UIPageViewControllerDataSource
@@ -59,5 +67,9 @@ extension RocketsPageViewController: RocketsPageViewProtocol {
     func present(rockets: [Rocket]) {
         self.rockets = rockets
         createRocketViewController()
+    }
+    
+    func present(rocketsError: String) {
+        showRocketsErrorAlert(rocketsError: rocketsError)
     }
 }

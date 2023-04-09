@@ -2,6 +2,7 @@ import Foundation
 
 protocol NetworkManagerProtocol {
     func getLaunches(completionHandler: @escaping (Result<[Launch], Error>) -> Void)
+    func getRockets(completionHandler: @escaping (Result<[Rocket], Error>) -> Void)
 }
 
 final class NetworkManager {
