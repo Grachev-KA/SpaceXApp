@@ -2,14 +2,14 @@
 <h1 dir="auto" style="text-align: center;"><strong>SpaceXApp</strong></h1>
 <p dir="auto">SpaceXApp - это приложение, которое предоставляет информацию о космических ракетах компании SpaceX и список запусков.</p>
 <p dir="auto">&nbsp;</p>
-<h3 dir="auto"><em><strong>Содержание</strong></em></h3>
+<h3 dir="auto"><span style="text-decoration: underline;"><em><strong>Содержание</strong></em></span></h3>
 <ul dir="auto">
-<li>Требования</li>
-<li>Установка</li>
-<li>Как использовать</li>
-<li>Тестирование</li>
-<li>Архитектура</li>
-<li>Дополнительная информация</li>
+<li><span style="text-decoration: underline;">Требования</span></li>
+<li><span style="text-decoration: underline;">Установка</span></li>
+<li><span style="text-decoration: underline;">Как использовать</span></li>
+<li><span style="text-decoration: underline;">Тестирование</span></li>
+<li><span style="text-decoration: underline;">Архитектура</span></li>
+<li><span style="text-decoration: underline;">Дополнительная информация</span></li>
 </ul>
 <p>&nbsp;</p>
 <h3 dir="auto"><em><strong>Требования</strong></em></h3>
