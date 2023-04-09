@@ -1,8 +1,7 @@
 <!-- #######  HEY, I AM THE SOURCE EDITOR! #########-->
 <h1 dir="auto" style="text-align: center;"><strong>SpaceXApp</strong></h1>
 <p dir="auto">SpaceXApp - это приложение, которое предоставляет информацию о космических ракетах компании SpaceX и список запусков.</p>
-<p dir="auto">&nbsp;</p>
-<h3 dir="auto"><span style="text-decoration: underline;"><em><strong>Содержание</strong></em></span></h3>
+<h3 dir="auto"><span style="text-decoration: underline;"><em><strong>Содержание:</strong></em></span></h3>
 <ul dir="auto">
 <li><span style="text-decoration: underline;">Требования</span></li>
 <li><span style="text-decoration: underline;">Установка</span></li>
