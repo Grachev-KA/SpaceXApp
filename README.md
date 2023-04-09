@@ -1,5 +1,7 @@
 <!-- #######  HEY, I AM THE SOURCE EDITOR! #########-->
 <h1 dir="auto" style="text-align: center;"><strong>SpaceXApp</strong></h1>
+<p style="text-align: center;"><strong><img src="https://gifyu.com/image/SdkOH" alt="" /><video controls="controls" width="300" height="150">
+<source src="https://gifyu.com/image/SdkOH" /></video></strong></p>
 <p dir="auto">SpaceXApp - это приложение, которое предоставляет информацию о космических ракетах компании SpaceX и список запусков.</p>
 <h3 dir="auto"><span style="text-decoration: underline;"><em><strong>Содержание:</strong></em></span></h3>
 <ul dir="auto">
