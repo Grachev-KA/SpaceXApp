@@ -4,7 +4,7 @@ SpaceXApp - это приложение, которое предоставляе
 
 **![](https://i.postimg.cc/668d113t/IMG-5442.jpg)![](https://i.postimg.cc/yY907gcG/IMG-5444.jpg)![](https://i.postimg.cc/nVNv8Yj7/IMG-5443.jpg)**
 
-### _**Содержание:**_
+### <u>_**Содержание:**_</u>
 
 *   Требования
 *   Установка
