@@ -3,14 +3,14 @@
 <p>SpaceXApp - это приложение, которое предоставляет информацию о космических ракетах компании SpaceX и список запусков.</p>
 <p><strong><img style="display: block; margin-left: auto; margin-right: auto;" src="https://i.postimg.cc/668d113t/IMG-5442.jpg" alt="" width="261" height="540" /><img style="display: block; margin-left: auto; margin-right: auto;" src="https://i.postimg.cc/yY907gcG/IMG-5444.jpg" alt="" width="267" height="540" /><img style="display: block; margin-left: auto; margin-right: auto;" src="https://i.postimg.cc/nVNv8Yj7/IMG-5443.jpg" alt="" width="270" height="540" /></strong></p>
 <p dir="auto">&nbsp;</p>
-<h3 dir="auto"><span style="text-decoration: underline;"><em><strong>Содержание:</strong></em></span></h3>
+<h3 dir="auto"><em><span style="text-decoration: underline;"><strong>Содержание:</strong></span></em></h3>
 <ul dir="auto">
-<li><span style="text-decoration: underline;">Требования</span></li>
-<li><span style="text-decoration: underline;">Установка</span></li>
-<li><span style="text-decoration: underline;">Как использовать</span></li>
-<li><span style="text-decoration: underline;">Тестирование</span></li>
-<li><span style="text-decoration: underline;">Архитектура</span></li>
-<li><span style="text-decoration: underline;">Дополнительная информация</span></li>
+<li><em><span style="text-decoration: underline;">Требования</span></em></li>
+<li><em><span style="text-decoration: underline;">Установка</span></em></li>
+<li><em><span style="text-decoration: underline;">Как использовать</span></em></li>
+<li><em><span style="text-decoration: underline;">Тестирование</span></em></li>
+<li><em><span style="text-decoration: underline;">Архитектура</span></em></li>
+<li><em><span style="text-decoration: underline;">Дополнительная информация</span></em></li>
 </ul>
 <p>&nbsp;</p>
 <h3 dir="auto"><em><strong>Требования</strong></em></h3>
