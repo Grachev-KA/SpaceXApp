@@ -1,16 +1,15 @@
 <!-- #######  HEY, I AM THE SOURCE EDITOR! #########-->
-<h1 dir="auto" style="text-align: center;"><strong>SpaceXApp</strong></h1>
-<p>SpaceXApp - это приложение, которое предоставляет информацию о космических ракетах компании SpaceX и список запусков.</p>
-<p><strong><img style="display: block; margin-left: auto; margin-right: auto;" src="https://i.postimg.cc/668d113t/IMG-5442.jpg" alt="" width="261" height="540" /><img style="display: block; margin-left: auto; margin-right: auto;" src="https://i.postimg.cc/yY907gcG/IMG-5444.jpg" alt="" width="267" height="540" /><img style="display: block; margin-left: auto; margin-right: auto;" src="https://i.postimg.cc/nVNv8Yj7/IMG-5443.jpg" alt="" width="270" height="540" /></strong></p>
-<p dir="auto">&nbsp;</p>
-<h3 dir="auto"><em><span style="text-decoration: underline;"><strong>Содержание:</strong></span></em></h3>
+<h1 dir="auto" style="text-align: left;"><strong>SpaceXApp</strong></h1>
+<p style="text-align: left;">SpaceXApp - это приложение, которое предоставляет информацию о космических ракетах компании SpaceX и список запусков.</p>
+<p style="text-align: left;"><strong><img src="https://i.postimg.cc/668d113t/IMG-5442.jpg" alt="" width="261" height="540" /></strong><strong><img style="display: block; margin-left: auto; margin-right: auto;" src="https://i.postimg.cc/yY907gcG/IMG-5444.jpg" alt="" width="267" height="540" /></strong><strong><img style="float: left;" src="https://i.postimg.cc/nVNv8Yj7/IMG-5443.jpg" alt="" width="270" height="540" /></strong></p>
+<h3 dir="auto" style="text-align: left;"><em><span style="text-decoration: underline;"><strong>Содержание:</strong></span></em></h3>
 <ul dir="auto">
-<li><em><span style="text-decoration: underline;">Требования</span></em></li>
-<li><em><span style="text-decoration: underline;">Установка</span></em></li>
-<li><em><span style="text-decoration: underline;">Как использовать</span></em></li>
-<li><em><span style="text-decoration: underline;">Тестирование</span></em></li>
-<li><em><span style="text-decoration: underline;">Архитектура</span></em></li>
-<li><em><span style="text-decoration: underline;">Дополнительная информация</span></em></li>
+<li style="text-align: left;"><em><span style="text-decoration: underline;">Требования</span></em></li>
+<li style="text-align: left;"><em><span style="text-decoration: underline;">Установка</span></em></li>
+<li style="text-align: left;"><em><span style="text-decoration: underline;">Как использовать</span></em></li>
+<li style="text-align: left;"><em><span style="text-decoration: underline;">Тестирование</span></em></li>
+<li style="text-align: left;"><em><span style="text-decoration: underline;">Архитектура</span></em></li>
+<li style="text-align: left;"><em><span style="text-decoration: underline;">Дополнительная информация</span></em></li>
 </ul>
 <p>&nbsp;</p>
 <h3 dir="auto"><em><strong>Требования</strong></em></h3>
