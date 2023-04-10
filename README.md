@@ -12,8 +12,10 @@
 <p dir="auto"><strong>Settings screen</strong>&nbsp;contains the possibility of changing the EU-US units of measurement which are immediately displayed on the main screen.</p>
 </li>
 </ul>
+<h2 dir="auto" tabindex="-1">&nbsp;</h2>
 <h2 dir="auto" tabindex="-1"><a id="user-content-preview" class="anchor" href="https://github.com/GregoryDushin/SpaceApp#preview" aria-hidden="true"></a>Preview</h2>
 <p dir="auto"><img src="https://imageup.ru/img197/4287423/img_5488.png" alt="" width="960" height="600" /></p>
+<h2 dir="auto" tabindex="-1">&nbsp;</h2>
 <h2 dir="auto" tabindex="-1"><a id="user-content-tecnologies" class="anchor" href="https://github.com/GregoryDushin/SpaceApp#tecnologies" aria-hidden="true"></a>Tecnologies</h2>
 <ul dir="auto">
 <li>UIKit</li>
