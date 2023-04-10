@@ -27,6 +27,7 @@
 <li>NSDiffableDataSource</li>
 <li>XCTests</li>
 </ul>
+<h2 dir="auto" tabindex="-1">&nbsp;</h2>
 <h2 dir="auto" tabindex="-1"><a id="user-content-resources" class="anchor" href="https://github.com/GregoryDushin/SpaceApp#resources" aria-hidden="true"></a>Resources</h2>
 <h3 dir="auto" tabindex="-1"><a id="user-content-networking" class="anchor" href="https://github.com/GregoryDushin/SpaceApp#networking" aria-hidden="true"></a>Networking</h3>
 <ul dir="auto">
@@ -38,11 +39,13 @@
 <li><a href="https://www.figma.com/file/GLxcmFyzglgO8f6v4eRFHc/%D0%A2%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5-%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5?node-id=2%3A3" rel="nofollow">Figma</a></li>
 <li><a href="https://www.figma.com/proto/GLxcmFyzglgO8f6v4eRFHc/%D0%A2%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5-%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5?page-id=0%3A1&amp;node-id=2%3A3&amp;viewport=323%2C48%2C0.16&amp;scaling=min-zoom&amp;starting-point-node-id=2%3A3" rel="nofollow">Interactive design mode</a></li>
 </ul>
+<h2 dir="auto" tabindex="-1">&nbsp;</h2>
 <h2 dir="auto" tabindex="-1"><a id="user-content-requirements" class="anchor" href="https://github.com/GregoryDushin/SpaceApp#requirements" aria-hidden="true"></a>Requirements</h2>
 <ul dir="auto">
 <li>iOS 13.0+</li>
 <li>Xcode 13.0+</li>
 </ul>
+<h2 dir="auto" tabindex="-1">&nbsp;</h2>
 <h2 dir="auto" tabindex="-1"><a id="user-content-installation" class="anchor" href="https://github.com/GregoryDushin/SpaceApp#installation" aria-hidden="true"></a>Installation</h2>
 <ol dir="auto">
 <li>Fork and clone this project to your machine</li>
