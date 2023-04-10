@@ -18,10 +18,10 @@
 <ul dir="auto">
 <li>UIKit</li>
 <li>MVP design pattern</li>
-<li>Alamofire</li>
 <li>UserDefaults</li>
 <li>Multithreading with GCD</li>
 <li>Networking with URLSession</li>
+<li>Kingfisher</li>
 <li>UITableView and UICollectionView</li>
 <li>UICompositionalLayout</li>
 <li>NSDiffableDataSource</li>
