@@ -1,5 +1,5 @@
 <h1 dir="auto" tabindex="-1">SpaceXApp&nbsp;🚀</h1>
-<h3 dir="auto" tabindex="-1"><a id="user-content-spaceapp-is-an-open-source-app-that-provides-information-of-spacex-rockets-and-their-actual-launches" class="anchor" href="https://github.com/GregoryDushin/SpaceApp#spaceapp-is-an-open-source-app-that-provides-information-of-spacex-rockets-and-their-actual-launches" aria-hidden="true"></a>SpaceApp is an open-source app that provides information of SpaceX rockets and their actual launches.</h3>
+<h3 dir="auto" tabindex="-1"><a id="user-content-spaceapp-is-an-open-source-app-that-provides-information-of-spacex-rockets-and-their-actual-launches" class="anchor" href="https://github.com/GregoryDushin/SpaceApp#spaceapp-is-an-open-source-app-that-provides-information-of-spacex-rockets-and-their-actual-launches" aria-hidden="true"></a>SpaceXApp is an open-source app that provides information of SpaceX rockets and their actual launches.</h3>
 <p dir="auto"><strong>The app contains three screens :</strong></p>
 <ul dir="auto">
 <li>
