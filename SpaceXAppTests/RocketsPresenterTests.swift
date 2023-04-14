@@ -5,9 +5,10 @@ final class RocketPresenterTests: XCTestCase {
     private var sut: RocketPresenter!
     private var rocketViewMock: RocketViewMock!
     private let rocketStub = Rocket(
-        height: .init(feet: 10.0),
-        diameter: .init(feet: 10.0),
-        mass: .init(lb: 10),
+        height: .init(meters: 10.0, feet: 10.0),
+        diameter: .init(meters: 10.0, feet: 10.0),
+        mass: .init(kg: 10, lb: 10),
+        payloadWeights: [.init(kg: 10, lb: 10)],
         firstStage: .init(engines: 10, fuelAmountTons: 10.0, burnTimeSec: 10),
         secondStage: .init(engines: 10, fuelAmountTons: 10.0, burnTimeSec: 10),
         flickrImages: ["www.flickrImages.com"],
