@@ -19,15 +19,15 @@ final class RocketPresenter {
         dateFormatter.dateFormat = "dd MMMM yyyy"
     }
     
-    private func makeSections(rocket: Rocket) -> [Section] {
-        var heightTitle: String
-        var heightValue: Double
-        var diameterTitle: String
-        var diameterValue: Double
-        var massTitle: String
-        var massValue: Int
-        var payloadTitle: String
-        var payloadValue: Int
+    private func makeCells(rocket: Rocket) -> [Section] {
+        let heightTitle: String
+        let heightValue: Double
+        let diameterTitle: String
+        let diameterValue: Double
+        let massTitle: String
+        let massValue: Int
+        let payloadTitle: String
+        let payloadValue: Int
         
         if userSettings.get(setting: .height)?.rawValue == "m" {
             heightTitle = "m"
@@ -123,15 +123,7 @@ final class RocketPresenter {
 
 extension RocketPresenter: RocketPresenterProtocol {
     func getSections() {
-        let makeSections = makeSections(rocket: rocket)
+        let makeSections = makeCells(rocket: rocket)
         view?.present(sections: makeSections, rocketId: rocket.id)
-    }
-}
-
-//MARK: - Update Sections
-
-extension RocketPresenter {
-    func updateSections() {
-        getSections()
     }
 }

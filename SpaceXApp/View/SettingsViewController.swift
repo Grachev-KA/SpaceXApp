@@ -4,7 +4,7 @@ final class SettingsViewController: UIViewController {
     private lazy var presenter = SettingsPresenter(view: self)
     private var availableSettings = [SettingsModel]()
     private var selectedUnits = [SettingsModel.Units?]()
-    private var updateSections: () -> Void
+    private let updateSections: () -> Void
     
     private let tableView: UITableView = {
         let tableView = UITableView()
