@@ -29,7 +29,7 @@ final class RocketPresenter {
         let payloadTitle: String
         let payloadValue: Int
         
-        if userSettings.get(setting: .height)?.rawValue == "m" {
+        if userSettings.get(setting: .height) == .meters {
             heightTitle = "m"
             heightValue = rocket.height.meters
         } else {
@@ -37,7 +37,7 @@ final class RocketPresenter {
             heightValue = rocket.height.feet
         }
         
-        if userSettings.get(setting: .diameter)?.rawValue == "m" {
+        if userSettings.get(setting: .diameter) == .meters {
             diameterTitle = "m"
             diameterValue = rocket.diameter.meters
         } else {
@@ -45,7 +45,7 @@ final class RocketPresenter {
             diameterValue = rocket.diameter.feet
         }
         
-        if userSettings.get(setting: .weight)?.rawValue == "kg" {
+        if userSettings.get(setting: .weight) == .kilograms {
             massTitle = "kg"
             massValue = rocket.mass.kg
         } else {
@@ -53,7 +53,7 @@ final class RocketPresenter {
             massValue = rocket.mass.lb
         }
         
-        if userSettings.get(setting: .payload)?.rawValue == "kg" {
+        if userSettings.get(setting: .payload) == .kilograms {
             payloadTitle = "kg"
             payloadValue = rocket.payloadWeights[0].kg
         } else {
