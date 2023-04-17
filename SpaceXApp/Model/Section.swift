@@ -12,9 +12,7 @@ extension Section {
         case vertical(title: String?)
         case button
     }
-}
 
-extension Section {
     enum CellType: Hashable {
         case header(image: URL, title: String)
         case info(title: String, value: String)

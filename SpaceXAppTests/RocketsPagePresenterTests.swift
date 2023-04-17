@@ -5,9 +5,10 @@ final class RocketsPagePresenterTests: XCTestCase {
     private var sut: RocketsPagePresenter!
     private var networkManagerMock: NetworkManagerMock!
     private var rocketsPageViewMock: RocketsPageViewMock!
-    private let firstRocketStub = Rocket(height: .init(feet: 11.0),
-                                         diameter: .init(feet: 12.0),
-                                         mass: .init(lb: 13),
+    private let firstRocketStub = Rocket(height: .init(meters: 11.0, feet: 11.0),
+                                         diameter: .init(meters: 11.0, feet: 12.0),
+                                         mass: .init(kg: 13, lb: 13),
+                                         payloadWeights: [.init(kg: 10, lb: 10)],
                                          firstStage: .init(engines: 14, fuelAmountTons: 15.0, burnTimeSec: nil),
                                          secondStage: .init(engines: 16, fuelAmountTons: 17.0, burnTimeSec: nil),
                                          flickrImages: ["www.firstRocket.com"],
@@ -16,9 +17,10 @@ final class RocketsPagePresenterTests: XCTestCase {
                                          country: "Russia",
                                          id: "123",
                                          costPerLaunch: 18)
-    private let secondRocketStub = Rocket(height: .init(feet: 111.0),
-                                          diameter: .init(feet: 112.0),
-                                          mass: .init(lb: 113),
+    private let secondRocketStub = Rocket(height: .init(meters: 111.0, feet: 111.0),
+                                          diameter: .init(meters: 112.0, feet: 112.0),
+                                          mass: .init(kg: 113, lb: 113),
+                                          payloadWeights: [.init(kg: 10, lb: 10)],
                                           firstStage: .init(engines: 114, fuelAmountTons: 115.0, burnTimeSec: nil),
                                           secondStage: .init(engines: 116, fuelAmountTons: 117.0, burnTimeSec: nil),
                                           flickrImages: ["www.secondRocket.com"],

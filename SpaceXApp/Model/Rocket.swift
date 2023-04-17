@@ -4,6 +4,7 @@ struct Rocket: Decodable, Equatable {
     let height: Diameter
     let diameter: Diameter
     let mass: Mass
+    let payloadWeights: [PayloadWeight]
     let firstStage: FirstStage
     let secondStage: SecondStage
     let flickrImages: [String]
@@ -16,10 +17,17 @@ struct Rocket: Decodable, Equatable {
 
 extension Rocket {
     struct Diameter: Decodable, Equatable {
-        let feet: Double?
+        let meters: Double
+        let feet: Double
     }
     
     struct Mass: Decodable, Equatable {
+        let kg: Int
+        let lb: Int
+    }
+    
+    struct PayloadWeight: Decodable, Equatable {
+        let kg: Int
         let lb: Int
     }
 
@@ -33,10 +41,5 @@ extension Rocket {
         let engines: Int
         let fuelAmountTons: Double
         let burnTimeSec: Int?
-    }
-
-    struct CompositeFairing: Decodable, Equatable {
-        let height: Diameter
-        let diameter: Diameter
     }
 }

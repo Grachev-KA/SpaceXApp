@@ -110,8 +110,9 @@ extension RocketViewController {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeaderRocketsCollectionViewCell.reuseIdentifier, for: indexPath)
                 (cell as? HeaderRocketsCollectionViewCell)?.setupViews(imageURL: image, title: title)
                 (cell as? HeaderRocketsCollectionViewCell)?.settingsButtonOnClick = {
-                    let vc = SettingsViewController()
-                    self?.present(vc, animated: true)
+                    guard let self else { return }
+                    let vc = SettingsViewController(updateSections: self.presenter.getSections)
+                    self.present(vc, animated: true)
                 }
                 return cell
                 
@@ -170,6 +171,7 @@ extension RocketViewController: RocketViewProtocol {
     func present(sections: [Section], rocketId: String) {
         self.sections = sections
         self.rocketId = rocketId
+        createSnapshot()
     }
 }
 

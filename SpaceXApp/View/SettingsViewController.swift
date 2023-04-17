@@ -4,6 +4,7 @@ final class SettingsViewController: UIViewController {
     private lazy var presenter = SettingsPresenter(view: self)
     private var availableSettings = [SettingsModel]()
     private var selectedUnits = [SettingsModel.Units?]()
+    private let updateSections: () -> Void
     
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -12,6 +13,15 @@ final class SettingsViewController: UIViewController {
         tableView.backgroundColor = .black
         return tableView
     }()
+    
+    init(updateSections: @escaping () -> Void) {
+        self.updateSections = updateSections
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +32,12 @@ final class SettingsViewController: UIViewController {
         tableView.delegate = self
         presenter.getSettingsModelAndUserSettings()
         setLayout()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        updateSections()
     }
     
     private func setLayout() {
@@ -51,7 +67,7 @@ extension SettingsViewController: UITableViewDataSource {
         cell.selectionStyle = .none
         
         (cell as? SettingsTableViewCell)?.onSettingChanged = { [weak self] selectedSegmentIndex in
-            guard let self = self else { return }
+            guard let self else { return }
             self.presenter.saveUserSettings(setting: setting, unit: setting.units[selectedSegmentIndex])
         }
         return cell

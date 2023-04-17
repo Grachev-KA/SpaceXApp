@@ -12,6 +12,7 @@ final class RocketPresenter {
     weak var view: RocketViewProtocol?
     private var rocket: Rocket
     private let dateFormatter = DateFormatter()
+    private let userSettings = UserSettings()
     
     init(rocket: Rocket) {
         self.rocket = rocket
@@ -19,6 +20,47 @@ final class RocketPresenter {
     }
     
     private func makeCells(rocket: Rocket) -> [Section] {
+        let heightTitle: String
+        let heightValue: Double
+        let diameterTitle: String
+        let diameterValue: Double
+        let massTitle: String
+        let massValue: Int
+        let payloadTitle: String
+        let payloadValue: Int
+        
+        if userSettings.get(setting: .height) == .meters {
+            heightTitle = "m"
+            heightValue = rocket.height.meters
+        } else {
+            heightTitle = "ft"
+            heightValue = rocket.height.feet
+        }
+        
+        if userSettings.get(setting: .diameter) == .meters {
+            diameterTitle = "m"
+            diameterValue = rocket.diameter.meters
+        } else {
+            diameterTitle = "ft"
+            diameterValue = rocket.diameter.feet
+        }
+        
+        if userSettings.get(setting: .weight) == .kilograms {
+            massTitle = "kg"
+            massValue = rocket.mass.kg
+        } else {
+            massTitle = "lb"
+            massValue = rocket.mass.lb
+        }
+        
+        if userSettings.get(setting: .payload) == .kilograms {
+            payloadTitle = "kg"
+            payloadValue = rocket.payloadWeights[0].kg
+        } else {
+            payloadTitle = "lb"
+            payloadValue = rocket.payloadWeights[0].lb
+        }
+        
         var sections = [Section]()
         let firstFlightString = dateFormatter.string(from: rocket.firstFlight)
         
@@ -37,10 +79,10 @@ final class RocketPresenter {
             Section(
                 type: .orthogonal,
                 cells: [
-                    .info(title: "Высота, ft", value: String(rocket.height.feet ?? 0)),
-                    .info(title: "Диаметр, ft", value: String(rocket.diameter.feet ?? 0)),
-                    .info(title: "Масса, lb", value: String(rocket.mass.lb)),
-                    .info(title: "Нагрузка, lb", value: String(rocket.mass.lb))
+                    .info(title: "Высота, \(heightTitle)", value: String(heightValue)),
+                    .info(title: "Диаметр, \(diameterTitle)", value: String(diameterValue)),
+                    .info(title: "Масса, \(massTitle)", value: String(massValue)),
+                    .info(title: "Нагрузка, \(payloadTitle)", value: String(payloadValue))
                 ]
             ),
             Section(
@@ -81,7 +123,7 @@ final class RocketPresenter {
 
 extension RocketPresenter: RocketPresenterProtocol {
     func getSections() {
-        let sections = makeCells(rocket: rocket)
-        view?.present(sections: sections, rocketId: rocket.id)
+        let makeSections = makeCells(rocket: rocket)
+        view?.present(sections: makeSections, rocketId: rocket.id)
     }
 }
