@@ -123,7 +123,7 @@ final class RocketPresenter {
 
 extension RocketPresenter: RocketPresenterProtocol {
     func getSections() {
-        let makeSections = makeCells(rocket: rocket)
-        view?.present(sections: makeSections, rocketId: rocket.id)
+        let makeCells = makeCells(rocket: rocket)
+        view?.present(sections: makeCells, rocketId: rocket.id)
     }
 }
