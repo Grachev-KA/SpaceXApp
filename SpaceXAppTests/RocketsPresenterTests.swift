@@ -28,10 +28,10 @@ final class RocketPresenterTests: XCTestCase {
         Section(
             type: .orthogonal,
             cells: [
-                .info(title: "Высота, m", value: "10.0"),
-                .info(title: "Диаметр, m", value: "10.0"),
-                .info(title: "Масса, kg", value: "10"),
-                .info(title: "Нагрузка, kg", value: "10")
+                .info(title: "Высота, ft", value: "10.0"),
+                .info(title: "Диаметр, ft", value: "10.0"),
+                .info(title: "Масса, lb", value: "10"),
+                .info(title: "Нагрузка, lb", value: "10")
             ]
         ),
         Section(
@@ -69,6 +69,7 @@ final class RocketPresenterTests: XCTestCase {
         sut = RocketPresenter(rocket: rocketStub)
         rocketViewMock = RocketViewMock()
         sut.view = rocketViewMock
+        UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
     }
     
     override func tearDown() {
@@ -95,10 +96,6 @@ private extension RocketPresenterTests {
         func present(sections: [Section], rocketId: String) {
             self.sections = sections
             self.rocketId = rocketId
-        }
-        
-        func makeCells(rocket: Rocket) -> [Section] {
-            sections!
         }
     }
 }

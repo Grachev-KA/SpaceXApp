@@ -23,7 +23,6 @@ final class RocketViewController: UIViewController {
         
         presenter.getSections()
         collectionView.dataSource = dataSource
-        createSnapshot()
         setViews()
     }
     
