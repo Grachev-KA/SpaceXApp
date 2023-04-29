@@ -96,9 +96,5 @@ private extension RocketPresenterTests {
             self.sections = sections
             self.rocketId = rocketId
         }
-        
-        func makeCells(rocket: Rocket) -> [Section] {
-            sections!
-        }
     }
 }
